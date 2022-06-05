@@ -1,7 +1,9 @@
 import { AppBar, Toolbar } from "@mui/material";
 
 import Drawer from "../Drawer/Drawer";
+import Logo from "../Toys/Logo";
 import Title from "../Toys/Title";
+import Gap from "../Toys/Gap";
 import DarkModeBtn from "../../Theme/DarkModeBtn";
 
 export default function AppBarComponent(props) {
@@ -18,7 +20,9 @@ export default function AppBarComponent(props) {
     >
       <Toolbar variant="dense">
         <Drawer />
+        <Logo />
         <Title />
+        <Gap />
         <DarkModeBtn />
       </Toolbar>
     </AppBar>

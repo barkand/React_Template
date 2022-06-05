@@ -34,6 +34,7 @@ export default function Drawer() {
         color="inherit"
         aria-label="menu"
         onClick={() => setIsDrawerOpen(true)}
+        sx={{ mr: 2 }}
       >
         <MenuIcon />
       </IconButton>
