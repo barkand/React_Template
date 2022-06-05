@@ -69,9 +69,9 @@ export default function FooterItems() {
           alignItems="center"
           sx={{ color: "text.primary" }}
         >
+          <CopyrightIcon sx={{ mr: 0.3, fontSize: 14 }} />
+          {process.env.REACT_APP_COPY_RIGHT_YEAR}{" "}
           {process.env.REACT_APP_COMPANY_NAME}
-          <CopyrightIcon sx={{ mx: 0.3, fontSize: 15 }} />
-          {process.env.REACT_APP_COPY_RIGHT_YEAR}
         </Stack>
       </Stack>
     </>
