@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import { Home as HomeIcon, Login as LoginIcon } from "@mui/icons-material";
+import { Home as HomeIcon, Article as ArticleIcon } from "@mui/icons-material";
 
 function CustomLink({ to, name, icon, onclick }) {
   return (
@@ -23,14 +23,14 @@ export default function ListItems({ closeDrawer, mode }) {
     >
       <CustomLink
         to={"/"}
-        name="Page1"
+        name="Home"
         icon={<HomeIcon />}
         onclick={closeDrawer}
       />
       <CustomLink
-        to={"/Page2"}
-        name="Page2"
-        icon={<LoginIcon />}
+        to={"/Page1"}
+        name="Page1"
+        icon={<ArticleIcon />}
         onclick={closeDrawer}
       />
     </div>
