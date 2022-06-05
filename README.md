@@ -7,6 +7,11 @@
 3. Modify (or add) name of your pages in: \
    3.1. Main.js (`Client\src\Components\Main`) for routing. \
    3.2. ListItems.js (`Client\src\Components\Main\Drawer`) for Show in Menu.
+4. Modify values of .enf file
+
+```
+ ** Only modify files of `Main` folder (client\src\Components\Main) and .env file. **
+```
 
 ## How to run
 
