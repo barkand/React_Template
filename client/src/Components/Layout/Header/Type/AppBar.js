@@ -5,7 +5,6 @@ import Title from "../Toys/Title";
 import DarkModeBtn from "../../Theme/DarkModeBtn";
 
 export default function AppBarComponent(props) {
-  console.log(props.elevation);
   return (
     <AppBar
       elevation={props.elevation}
