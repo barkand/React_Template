@@ -24,7 +24,7 @@ A ready template for a quick start with react. 🚀
  ** Only modify files of `Main` folder (client\src\Components\Main) and .env file. **
 ```
 
-## How to run
+## How to Run
 
 In the project directory, you can run:
 
