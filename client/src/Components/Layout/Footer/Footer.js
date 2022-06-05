@@ -1,6 +1,7 @@
 import React from "react";
 
 import { PublicContext } from "../../../Context/Public";
+import FooterContent from "../../Main/Footer/Footer";
 
 function Footer() {
   const { publicCtx } = React.useContext(PublicContext);
@@ -13,7 +14,7 @@ function Footer() {
           backgroundColor: publicCtx.theme.primary.main,
         }}
       >
-        Footer
+        <FooterContent />
       </div>
     </footer>
   );
