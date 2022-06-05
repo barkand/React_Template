@@ -1,0 +1,24 @@
+import React from "react";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+
+import { PublicContext } from "../../../Context/Public";
+
+export default function Theme({ children }) {
+  const { publicCtx } = React.useContext(PublicContext);
+  const muiTheme = createTheme({
+    palette: {
+      mode: publicCtx.theme.mode,
+      primary: {
+        main: publicCtx.theme.primary.main,
+      },
+    },
+  });
+
+  return (
+    <ThemeProvider theme={muiTheme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  );
+}
