@@ -5,7 +5,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 import { PublicContext } from "../../../Context/Public";
 import SetColor, { Colors } from "../Theme/SetColor";
 
-function Setting() {
+export default function Setting() {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
   const [color, settColor] = React.useState(publicCtx.theme.color);
 
@@ -21,7 +21,11 @@ function Setting() {
         color: color,
         primary: {
           ...publicCtx.theme.primary,
-          main: SetColor(publicCtx.theme.mode, color),
+          main: SetColor(publicCtx.theme.mode, color, "Primary"),
+        },
+        secondary: {
+          ...publicCtx.theme.secondary,
+          main: SetColor(publicCtx.theme.mode, color, "Secondary"),
         },
       },
     });
@@ -40,16 +44,21 @@ function Setting() {
           onChange={handleChange}
           label="Color"
         >
-          {Object.keys(Colors).map((color) => (
+          {Object.keys(Colors["Primary"]).map((color) => (
             <MenuItem
               key={color}
               value={color}
-              sx={{ color: SetColor(publicCtx.theme.mode, color) }}
+              sx={{ color: SetColor(publicCtx.theme.mode, color, "Primary") }}
             >
               <CircleIcon
                 sx={{
-                  mr: 5,
-                  color: SetColor(publicCtx.theme.mode, color),
+                  color: SetColor(publicCtx.theme.mode, color, "Primary"),
+                }}
+              />
+              <CircleIcon
+                sx={{
+                  mr: 3,
+                  color: SetColor(publicCtx.theme.mode, color, "Secondary"),
                 }}
               />
               {color}
@@ -60,5 +69,3 @@ function Setting() {
     </div>
   );
 }
-
-export default Setting;

@@ -12,6 +12,9 @@ export default function Theme({ children }) {
       primary: {
         main: publicCtx.theme.primary.main,
       },
+      secondary: {
+        main: publicCtx.theme.secondary.main,
+      },
     },
   });
 

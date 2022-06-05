@@ -20,7 +20,11 @@ export default function DarkModeBtn() {
         mode: newMode,
         primary: {
           ...publicCtx.theme.primary,
-          main: SetColor(newMode, publicCtx.theme.color),
+          main: SetColor(newMode, publicCtx.theme.color, "Primary"),
+        },
+        secondary: {
+          ...publicCtx.theme.secondary,
+          main: SetColor(newMode, publicCtx.theme.color, "Secondary"),
         },
       },
     });

@@ -6,7 +6,10 @@ const Default = {
     mode: "dark",
     color: "PURPLE",
     primary: {
-      main: purple[700],
+      main: purple[400],
+    },
+    secondary: {
+      main: purple[200],
     },
   },
 };
