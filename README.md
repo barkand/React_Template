@@ -4,9 +4,9 @@
 
 1. Clone the project
 2. Edit `Home.js` & `Page1.js` (or add other Pages) in `Client\src\Components\Main\Screens` path
-3. Modify (or add) name of your pages in:
-   3.1. Main.js (`Client\src\Components\Main`) for routing
-   3.2. ListItems.js (`Client\src\Components\Main\Drawer`) for Show in Menu
+3. Modify (or add) name of your pages in: \
+   3.1. Main.js (`Client\src\Components\Main`) for routing. \
+   3.2. ListItems.js (`Client\src\Components\Main\Drawer`) for Show in Menu.
 
 ## How to run
 
