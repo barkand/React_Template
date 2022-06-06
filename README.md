@@ -9,11 +9,11 @@ A ready template for a quick start with react. 🚀
 ## Features
 
 - 4 parts (Header, Footer, Sidebar, and Main)
-- 📱 Mobile Friendly
 - 🌙 Dark Mode
 - 🎨 Colored Template (Yellow, Blue, Green, Red, Purple)
 - 📥 Multi Header (Static, Fixed, Hide, Elevate)
 - 📍 Scroll to Top
+- 📱 PWA
 
 ## How to Edit
 

@@ -1,0 +1,43 @@
+{
+  "short_name": "CName",
+  "name": "Company Name",
+  "description": "Company Name description",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/image/Logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/image/Logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./",
+  "scope": ".",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "theme_color": "#3367D6",
+  "shortcuts": [
+    {
+      "name": "Company Name",
+      "short_name": "CName",
+      "description": "Company Name description",
+      "url": "/?source=pwa",
+      "icons": [{ "src": "/image/Logo-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/image/Logo-540.png",
+      "type": "image/png",
+      "sizes": "540x720"
+    }
+  ]
+}
