@@ -1,6 +1,6 @@
 import React from "react";
 import { Select, MenuItem, InputLabel, FormControl } from "@mui/material";
-import CircleIcon from "@mui/icons-material/Circle";
+import { Circle as CircleIcon } from "@mui/icons-material";
 
 import { PublicContext } from "../../Context/Public";
 import SetColor, { Colors } from "../Theme/SetColor";
@@ -33,39 +33,43 @@ export default function Setting() {
   }, [color]);
 
   return (
-    <div style={{ paddingLeft: 15, paddingRight: 15 }}>
-      <p style={{ color: publicCtx.theme.primary.main }}>Settings:</p>
+    <>
+      <div style={{ paddingLeft: 15, paddingRight: 15 }}>
+        <p>Settings:</p>
 
-      <FormControl fullWidth>
-        <InputLabel id="color-select-label">Color</InputLabel>
-        <Select
-          id="color-select"
-          value={color}
-          onChange={handleChange}
-          label="Color"
-        >
-          {Object.keys(Colors["Primary"]).map((color) => (
-            <MenuItem
-              key={color}
-              value={color}
-              sx={{ color: SetColor(publicCtx.theme.mode, color, "Primary") }}
-            >
-              <CircleIcon
+        <FormControl fullWidth>
+          <InputLabel id="color-select-label">Color</InputLabel>
+          <Select
+            id="color-select"
+            value={color}
+            onChange={handleChange}
+            label="Color"
+          >
+            {Object.keys(Colors["Primary"]).map((color) => (
+              <MenuItem
+                key={color}
+                value={color}
                 sx={{
                   color: SetColor(publicCtx.theme.mode, color, "Primary"),
                 }}
-              />
-              <CircleIcon
-                sx={{
-                  mr: 3,
-                  color: SetColor(publicCtx.theme.mode, color, "Secondary"),
-                }}
-              />
-              {color}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
+              >
+                <CircleIcon
+                  sx={{
+                    color: SetColor(publicCtx.theme.mode, color, "Primary"),
+                  }}
+                />
+                <CircleIcon
+                  sx={{
+                    mr: 3,
+                    color: SetColor(publicCtx.theme.mode, color, "Secondary"),
+                  }}
+                />
+                {color}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+    </>
   );
 }

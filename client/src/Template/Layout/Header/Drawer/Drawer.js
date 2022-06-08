@@ -1,31 +1,15 @@
-import React, { useState } from "react";
-import { Divider, Drawer as MuiDrawer, List, IconButton } from "@mui/material";
-import {
-  Menu as MenuIcon,
-  ChevronLeft as ChevronLeftIcon,
-} from "@mui/icons-material";
-import { styled } from "@mui/material/styles";
+import React from "react";
+import { IconButton } from "@mui/material";
+import { Menu as MenuIcon } from "@mui/icons-material";
 
-import { PublicContext } from "../../../Context/Public";
-
-import ListItems from "../../../../Content/Header/Drawer/ListItems";
-import FooterItems from "./FooterItems";
-import Setting from "../../Setting/Setting";
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  padding: theme.spacing(0, 1),
-  ...theme.mixins.toolbar,
-  justifyContent: "flex-end",
-}));
+import MuiDrawer from "./Toys/MuiDrawer";
+import MainDrawer from "./Main/MainDrawer";
+import NestedDrawer from "./Nested/NestedDrawer";
 
 export default function Drawer() {
-  const { publicCtx } = React.useContext(PublicContext);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  let closeDrawer = () => {
-    setIsDrawerOpen(false);
-  };
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+  let closeDrawer = () => setIsDrawerOpen(false);
+  let openDrawer = () => setIsDrawerOpen(true);
 
   return (
     <>
@@ -33,39 +17,14 @@ export default function Drawer() {
         edge="start"
         color="inherit"
         aria-label="menu"
-        onClick={() => setIsDrawerOpen(true)}
+        onClick={openDrawer}
         sx={{ mr: 2 }}
       >
         <MenuIcon />
       </IconButton>
-      <MuiDrawer
-        open={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
-        sx={{
-          width: 240,
-          minHeight: "50px",
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: 240,
-            boxSizing: "border-box",
-            backgroundColor:
-              publicCtx.theme.mode === "dark" ? "#0c0c0c" : "#e1e1e1",
-          },
-        }}
-      >
-        <List sx={{ width: "100%" }}>
-          <Divider />
-          <DrawerHeader>
-            <IconButton onClick={() => setIsDrawerOpen(false)}>
-              <ChevronLeftIcon />
-            </IconButton>
-          </DrawerHeader>
-          <Divider />
-          <ListItems closeDrawer={closeDrawer} mode={publicCtx.theme.mode} />
-          <Divider />
-        </List>
-        <Setting />
-        <FooterItems />
+      <MuiDrawer isDrawerOpen={isDrawerOpen} closeDrawer={closeDrawer}>
+        <NestedDrawer />
+        <MainDrawer closeDrawer={closeDrawer} />
       </MuiDrawer>
     </>
   );

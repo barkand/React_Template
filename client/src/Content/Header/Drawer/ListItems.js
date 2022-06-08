@@ -14,13 +14,9 @@ function CustomLink({ to, name, icon, onclick }) {
   );
 }
 
-export default function ListItems({ closeDrawer, mode }) {
+export default function ListItems({ closeDrawer }) {
   return (
-    <div
-      style={{
-        backgroundColor: mode === "dark" ? "#222222" : "#d1d1d1",
-      }}
-    >
+    <>
       <CustomLink
         to={"/"}
         name="Home"
@@ -33,6 +29,6 @@ export default function ListItems({ closeDrawer, mode }) {
         icon={<ArticleIcon />}
         onclick={closeDrawer}
       />
-    </div>
+    </>
   );
 }

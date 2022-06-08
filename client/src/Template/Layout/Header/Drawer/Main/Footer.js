@@ -7,7 +7,7 @@ import {
   LinkedIn as LinkedInIcon,
 } from "@mui/icons-material";
 
-export default function FooterItems() {
+export default function Footer() {
   return (
     <>
       <Stack
