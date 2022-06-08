@@ -1,9 +1,9 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
 
-import { PublicProvider } from "./Layout/Context/Public";
-import Theme from "./Layout/Components/Theme/Theme";
-import Layout from "./Layout/Components/Layout";
+import { PublicProvider } from "./Context/Public";
+import Theme from "./Components/Theme/Theme";
+import Layout from "./Components/Layout";
 
 export default function App() {
   return (
