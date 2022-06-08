@@ -1,6 +1,6 @@
 import React from "react";
 
-import StaticHeader from "../../Layout/Components/Header/Type/StaticHeader";
+import StaticHeader from "../../Template/Layout/Header/Type/StaticHeader";
 // import ElevateHeader from "../../Layout/Components/Header/Type/ElevateHeader";
 // import FixedHeader from "../../Layout/Components/Header/Type/FixedHeader";
 // import HideHeader from "../../Layout/Components/Header/Type/HideHeader";
