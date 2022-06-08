@@ -22,7 +22,7 @@ A ready template for a quick start with react. 🚀
 3. Modify (or add) name of your pages in: \
    3.1. Main.js (`Client\src\Content`) for routing. \
    3.2. ListItems.js (`Client\src\Content\Header\Drawer`) for Show in Menu.
-4. Modify values of .enf file
+4. Modify values of .env file
 
 ```
  ** Only modify files of `Content` folder (client\src\Content), .env file & index.html. **
