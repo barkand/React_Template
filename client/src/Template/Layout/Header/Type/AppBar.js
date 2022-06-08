@@ -5,6 +5,7 @@ import Logo from "../Toys/Logo";
 import Title from "../Toys/Title";
 import Gap from "../Toys/Gap";
 import DarkModeBtn from "../../Theme/DarkModeBtn";
+import WalletBtn from "../../../Components/Auth/Web3/Toys/WalletBtn";
 
 export default function AppBarComponent(props) {
   return (
@@ -23,6 +24,7 @@ export default function AppBarComponent(props) {
         <Logo />
         <Title />
         <Gap />
+        {process.env.REACT_APP_WALLET_TYPE === "WEB3" ? <WalletBtn /> : <></>}
         <DarkModeBtn />
       </Toolbar>
     </AppBar>
