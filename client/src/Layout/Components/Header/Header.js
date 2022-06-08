@@ -1,6 +1,6 @@
 import React from "react";
 
-import HeaderContent from "../../Main/Header/Header";
+import HeaderContent from "../../../Content/Header/Header";
 
 export default function Header() {
   return (

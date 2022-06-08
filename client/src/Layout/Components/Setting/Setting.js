@@ -2,7 +2,7 @@ import React from "react";
 import { Select, MenuItem, InputLabel, FormControl } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 
-import { PublicContext } from "../../../Context/Public";
+import { PublicContext } from "../../Context/Public";
 import SetColor, { Colors } from "../Theme/SetColor";
 
 export default function Setting() {

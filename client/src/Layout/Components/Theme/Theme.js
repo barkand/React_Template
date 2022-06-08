@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
-import { PublicContext } from "../../../Context/Public";
+import { PublicContext } from "../../Context/Public";
 
 export default function Theme({ children }) {
   const { publicCtx } = React.useContext(PublicContext);

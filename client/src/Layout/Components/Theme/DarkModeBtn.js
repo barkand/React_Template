@@ -5,7 +5,7 @@ import {
   Brightness7 as Brightness7Icon,
 } from "@mui/icons-material";
 
-import { PublicContext } from "../../../Context/Public";
+import { PublicContext } from "../../Context/Public";
 import SetColor from "./SetColor";
 
 export default function DarkModeBtn() {

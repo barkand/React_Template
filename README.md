@@ -18,14 +18,14 @@ A ready template for a quick start with react. 🚀
 ## How to Edit
 
 1. Clone the project
-2. Edit `Home.js` & `Page1.js` (or add other Pages) in `Client\src\Components\Main\Screens` path
+2. Edit `Home.js` & `Page1.js` (or add other Pages) in `Client\src\Content\Screens` path
 3. Modify (or add) name of your pages in: \
-   3.1. Main.js (`Client\src\Components\Main`) for routing. \
-   3.2. ListItems.js (`Client\src\Components\Main\Drawer`) for Show in Menu.
+   3.1. Main.js (`Client\src\Content`) for routing. \
+   3.2. ListItems.js (`Client\src\Content\Header\Drawer`) for Show in Menu.
 4. Modify values of .enf file
 
 ```
- ** Only modify files of `Main` folder (client\src\Components\Main) and .env file. **
+ ** Only modify files of `Content` folder (client\src\Content), .env file & index.html. **
 ```
 
 ## How to Run
