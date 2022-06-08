@@ -11,7 +11,7 @@ A ready template for a quick start with react. 🚀
 - 4 parts (Header, Footer, Sidebar, and Main)
 - 🌙 Dark Mode
 - 🎨 Colored Template (Yellow, Blue, Green, Red, Purple)
-- 📥 Multi Header (Static, Fixed, Hide, Elevate)
+- 📥 Multi Header (STATIC, FIXED, HIDE, ELEVATE)
 - 📍 Scroll to Top
 - 📱 PWA
 
