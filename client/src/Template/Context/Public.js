@@ -1,7 +1,14 @@
 import React from "react";
 import { purple } from "@mui/material/colors";
 
+function deviceType() {
+  return "ontouchstart" in window || "onmsgesturechange" in window
+    ? "mobile"
+    : "web";
+}
+
 export const Default = {
+  device: deviceType(),
   theme: {
     mode: "dark",
     color: "PURPLE",
@@ -24,6 +31,11 @@ export const Default = {
       wei: 0,
     },
     gasLimit: "30000000",
+  },
+  AlertBar: {
+    open: false,
+    message: "",
+    severity: "info",
   },
 };
 

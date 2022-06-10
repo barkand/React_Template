@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./Screens/Home";
 import Page1 from "./Screens/Page1";
+import AlertBar from "../Template/Layout/Toys/AlertBar";
 
 export default function Main() {
   return (
@@ -11,6 +12,7 @@ export default function Main() {
         <Route path="/" element={<Home />} exact />
         <Route path="/Page1" element={<Page1 />} />
       </Routes>
+      <AlertBar />
     </main>
   );
 }

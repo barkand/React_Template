@@ -23,7 +23,7 @@ async function FillWallet() {
       process.env.REACT_APP_LOCAL_BLOCKCHAIN
     );
   }
-  //library
+  //library Web3
   _wallet.library = new Web3(web3Provider);
   //
   let eth = _wallet.library.eth;
@@ -49,33 +49,57 @@ async function FillWallet() {
 }
 
 export async function LoginWallet() {
-  let _wallet;
-  _wallet = await window.ethereum
-    .request({
-      method: "wallet_requestPermissions",
-      params: [{ eth_accounts: {} }],
-    })
-    .then((permissions) => {
-      const accountsPermission = permissions.find(
-        (permission) => permission.parentCapability === "eth_accounts"
-      );
+  if (window.ethereum) {
+    let _wallet;
+    _wallet = await window.ethereum
+      .request({
+        method: "wallet_requestPermissions",
+        params: [{ eth_accounts: {} }],
+      })
+      .then((permissions) => {
+        const accountsPermission = permissions.find(
+          (permission) => permission.parentCapability === "eth_accounts"
+        );
 
-      if (accountsPermission) {
-        return FillWallet().then((result) => result);
-      }
-    })
-    .catch((error) => {
-      if (error.code === 4001) {
-        // EIP-1193 userRejectedRequest error
-        alert("Permissions needed to continue.");
-      } else {
-        console.error(error);
-      }
-    });
-
-  return _wallet || DefaultWallet;
+        if (accountsPermission) {
+          return FillWallet().then((result) => result);
+        }
+      })
+      .catch((error) => {
+        if (error.code === 4001) {
+          // EIP-1193 userRejectedRequest error
+          alert("Permissions needed to continue.");
+        } else {
+          console.error(error);
+        }
+      });
+    return {
+      wallet: _wallet,
+      alert: {
+        open: true,
+        message: "Login Wallet Success",
+        severity: "success",
+      },
+    };
+  } else {
+    return {
+      wallet: DefaultWallet,
+      alert: {
+        open: true,
+        message: "Please install MetaMask to continue.",
+        severity: "warning",
+      },
+    };
+  }
 }
 
 export async function LogoutWallet() {
-  return DefaultWallet;
+  return {
+    wallet: DefaultWallet,
+    alert: {
+      open: true,
+      message: "Logout Wallet Success",
+      severity: "success",
+    },
+  };
 }

@@ -9,11 +9,14 @@ export default function WalletBtn() {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
 
   const walletClick = async () => {
+    let _loginLogout = publicCtx.wallet.connected
+      ? await LogoutWallet()
+      : await LoginWallet();
+
     setPublicCtx({
       ...publicCtx,
-      wallet: publicCtx.wallet.connected
-        ? await LogoutWallet()
-        : await LoginWallet(),
+      wallet: _loginLogout.wallet,
+      AlertBar: _loginLogout.alert,
     });
   };
 
