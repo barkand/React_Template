@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
 
-import { PublicContext } from "../../../../Context/Public";
+import { PublicContext } from "../../../Context/Public";
 
 export default function User() {
   const { publicCtx } = React.useContext(PublicContext);

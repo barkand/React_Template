@@ -3,7 +3,7 @@ import { IconButton, Stack } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 import MuiDrawer from "../Toys/MuiDrawer";
-import User from "../Toys/User";
+import User from "../../../../Components/Profile/Toys/User";
 import Setting from "../../../Setting/Setting";
 
 export default function NestedDrawer() {
