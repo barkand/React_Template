@@ -16,6 +16,7 @@ export default function MuiDrawer({ children, isDrawerOpen, closeDrawer }) {
     <>
       <Drawer
         open={isDrawerOpen}
+        onClose={closeDrawer}
         sx={{
           "& .MuiDrawer-paper": {
             width: 240,
