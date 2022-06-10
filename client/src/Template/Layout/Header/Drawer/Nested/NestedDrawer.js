@@ -1,8 +1,9 @@
 import React from "react";
-import { IconButton } from "@mui/material";
+import { IconButton, Stack } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 import MuiDrawer from "../Toys/MuiDrawer";
+import User from "../Toys/User";
 import Setting from "../../../Setting/Setting";
 
 export default function NestedDrawer() {
@@ -12,10 +13,12 @@ export default function NestedDrawer() {
 
   return (
     <div style={{ paddingLeft: "10px" }}>
-      <IconButton onClick={openDrawer}>
-        <SettingsIcon />
-      </IconButton>
-
+      <Stack direction="row" spacing={2} alignItems="center">
+        <IconButton onClick={openDrawer}>
+          <SettingsIcon />
+        </IconButton>
+        <User />
+      </Stack>
       <MuiDrawer isDrawerOpen={isDrawerOpen} closeDrawer={closeDrawer}>
         <Setting />
       </MuiDrawer>
