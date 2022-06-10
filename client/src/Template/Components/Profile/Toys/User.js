@@ -5,7 +5,7 @@ import { PublicContext } from "../../../Context/Public";
 
 export default function User() {
   const { publicCtx } = React.useContext(PublicContext);
-
+  let account = publicCtx.wallet.account;
   return (
     <>
       {publicCtx.wallet.connected ? (
@@ -19,16 +19,10 @@ export default function User() {
             overflow: "hidden",
           }}
         >
-          <Typography
-            variant="subtitle2"
-            color="inherited"
-            sx={{
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-            }}
-          >
-            {publicCtx.wallet.account}
+          <Typography variant="subtitle2" color="inherited">
+            {account.substr(0, 8) +
+              "..." +
+              account.substr(account.length - 6, account.length)}
           </Typography>
         </span>
       ) : (
