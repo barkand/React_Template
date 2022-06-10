@@ -8,19 +8,24 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 export default function AlertBar() {
-  const { publicCtx } = React.useContext(PublicContext);
+  const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
 
   const [open, setOpen] = React.useState(false);
-  const [msg, setMsg] = React.useState("publicCtx.AlertBar.message");
+  const [msg, setMsg] = React.useState("");
   const [severity, setSeverity] = React.useState("info");
 
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setPublicCtx({
+      ...publicCtx,
+      AlertBar: { open: false, message: "", severity: "info" },
+    });
+  };
 
   React.useEffect(() => {
     setOpen(publicCtx.AlertBar.open);
     setMsg(publicCtx.AlertBar.message);
     setSeverity(publicCtx.AlertBar.severity);
-  }, [publicCtx]);
+  }, [publicCtx.AlertBar]);
 
   return (
     <>
