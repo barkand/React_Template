@@ -1,4 +1,6 @@
-const cacheName = "cache-v2";
+let rand =
+  Math.random().toString(36).slice(2) + Math.floor(Math.random() * 999999);
+const cacheName = "cache-" + rand;
 const staticAssets = [
   "./",
   "./index.html",
