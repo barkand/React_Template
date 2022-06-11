@@ -1,13 +1,23 @@
 import Web3 from "web3";
+import WalletConnectProvider from "@walletconnect/web3-provider";
 import { Default } from "../../../Context/Public";
 
 let DefaultWallet = Default.wallet;
 
-export async function FillWallet() {
-  const _wallet = JSON.parse(JSON.stringify(DefaultWallet));
-  let web3Provider = null;
+export async function FillWallet(deviceType) {
   // web3
-  if (window.ethereum) {
+  let web3Provider = null;
+  if (deviceType === "mobile") {
+    web3Provider = new WalletConnectProvider({
+      rpc: {
+        1: "https://mainnet.mycustomnode.com",
+        3: "https://ropsten.mycustomnode.com",
+        4: "https://rinkeby.mycustomnode.com",
+        42: "https://kovan.mycustomnode.com",
+      },
+    });
+    await web3Provider.enable();
+  } else if (window.ethereum) {
     web3Provider = window.ethereum;
   } else if (window.web3) {
     web3Provider = window.web3.currentProvider;
@@ -16,6 +26,8 @@ export async function FillWallet() {
       process.env.REACT_APP_LOCAL_BLOCKCHAIN
     );
   }
+
+  const _wallet = JSON.parse(JSON.stringify(DefaultWallet));
   //library Web3
   _wallet.library = new Web3(web3Provider);
   //
@@ -33,9 +45,26 @@ export async function FillWallet() {
 
 export async function LoginWallet(deviceType) {
   if (deviceType === "mobile") {
-    const metamaskAppDeepLink =
-      "https://metamask.app.link/dapp/" + process.env.REACT_APP_DAPP_URL;
-    window.location.href = metamaskAppDeepLink;
+    let _wallet = await FillWallet(deviceType).catch((err) => {
+      console.log(err);
+      return {
+        wallet: DefaultWallet,
+        alert: {
+          open: true,
+          message: "Error enquired.",
+          severity: "error",
+        },
+      };
+    });
+
+    return {
+      wallet: _wallet,
+      alert: {
+        open: true,
+        message: "Login Wallet Success.",
+        severity: "success",
+      },
+    };
   }
 
   if (!window.ethereum) {
