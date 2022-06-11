@@ -17,15 +17,15 @@ export default function AlertBar() {
   const handleClose = () => {
     setPublicCtx({
       ...publicCtx,
-      AlertBar: { open: false, message: "", severity: "info" },
+      alertBar: { open: false, message: "", severity: "info" },
     });
   };
 
   React.useEffect(() => {
-    setOpen(publicCtx.AlertBar.open);
-    setMsg(publicCtx.AlertBar.message);
-    setSeverity(publicCtx.AlertBar.severity);
-  }, [publicCtx.AlertBar]);
+    setOpen(publicCtx.alertBar.open);
+    setMsg(publicCtx.alertBar.message);
+    setSeverity(publicCtx.alertBar.severity);
+  }, [publicCtx.alertBar]);
 
   return (
     <>

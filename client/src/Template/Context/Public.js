@@ -32,7 +32,7 @@ export const Default = {
     },
     gasLimit: "30000000",
   },
-  AlertBar: {
+  alertBar: {
     open: false,
     message: "",
     severity: "info",
