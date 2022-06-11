@@ -2,21 +2,27 @@ import React from "react";
 import { Button } from "@mui/material";
 import { AccountBalanceWallet as AccountBalanceWalletIcon } from "@mui/icons-material";
 
-import { LoginWallet, LogoutWallet } from "../WalletWeb3";
+import { LoginWallet, LogoutWallet, FillWallet } from "../WalletWeb3";
 import { PublicContext } from "../../../../Context/Public";
 
 export default function WalletBtn() {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
 
+  React.useEffect(() => {
+    if (publicCtx.device === "mobile") {
+      FillWallet();
+    }
+  }, [publicCtx.device]);
+
   const walletClick = async () => {
     let _loginLogout = publicCtx.wallet.connected
       ? await LogoutWallet()
-      : await LoginWallet();
+      : await LoginWallet(publicCtx.device);
 
     setPublicCtx({
       ...publicCtx,
       wallet: _loginLogout.wallet,
-      AlertBar: _loginLogout.alert,
+      alertBar: _loginLogout.alert,
     });
   };
 
