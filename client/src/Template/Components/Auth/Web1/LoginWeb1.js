@@ -2,11 +2,11 @@ import { Default } from "../../../Context/Public";
 
 let DefaultAcoount = Default.auth;
 
-export async function LoginAccount() {
+export async function LoginAccount(username, password) {
   return {
     auth: {
       connected: true,
-      user: "admin",
+      user: username,
       token: "123",
     },
     alert: {

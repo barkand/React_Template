@@ -2,37 +2,43 @@ import React from "react";
 import { Button } from "@mui/material";
 import { Login as LoginIcon, Logout as LogoutIcon } from "@mui/icons-material";
 
-import { LoginAccount, LogoutAccount } from "../LoginWeb1";
+import { LogoutAccount } from "../LoginWeb1";
+import LoginDialog from "./LoginDialog";
 import { PublicContext } from "../../../../Context/Public";
 
 export default function LoginBtn() {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
+  const [openModal, setOpenModal] = React.useState(false);
 
   const loginClick = async () => {
-    let _loginLogout = publicCtx.auth.connected
-      ? await LogoutAccount()
-      : await LoginAccount();
-
-    setPublicCtx({
-      ...publicCtx,
-      auth: _loginLogout.auth,
-      alertBar: _loginLogout.alert,
-    });
+    if (publicCtx.auth.connected) {
+      let _logout = await LogoutAccount();
+      setPublicCtx({
+        ...publicCtx,
+        auth: _logout.auth,
+        alertBar: _logout.alert,
+      });
+    } else {
+      setOpenModal(true);
+    }
   };
 
   return (
-    <Button color="inherit" onClick={loginClick}>
-      {publicCtx.auth.connected ? (
-        <>
-          <LogoutIcon sx={{ mr: 1 }} />
-          {"Logout"}
-        </>
-      ) : (
-        <>
-          <LoginIcon sx={{ mr: 1 }} />
-          {"Login"}
-        </>
-      )}
-    </Button>
+    <>
+      <Button color="inherit" onClick={loginClick}>
+        {publicCtx.auth.connected ? (
+          <>
+            <LogoutIcon sx={{ mr: 1 }} />
+            {"Logout"}
+          </>
+        ) : (
+          <>
+            <LoginIcon sx={{ mr: 1 }} />
+            {"Login"}
+          </>
+        )}
+      </Button>
+      <LoginDialog openModal={openModal} setOpenModal={setOpenModal} />
+    </>
   );
 }
