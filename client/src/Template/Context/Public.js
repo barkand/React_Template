@@ -20,17 +20,22 @@ export const Default = {
     },
   },
   wallet: {
+    connected: false,
     library: null,
     network: null,
     networkId: 0,
     account: "0x",
     chainId: 0,
-    connected: false,
     balance: {
       eth: 0,
       wei: 0,
     },
     gasLimit: "30000000",
+  },
+  auth: {
+    connected: false,
+    user: "",
+    token: "",
   },
   alertBar: {
     open: false,

@@ -5,10 +5,27 @@ import { PublicContext } from "../../../Context/Public";
 
 export default function User() {
   const { publicCtx } = React.useContext(PublicContext);
-  let account = publicCtx.wallet.account;
+  const [connected, setConnected] = React.useState(false);
+  const [account, setAccount] = React.useState("");
+
+  React.useEffect(() => {
+    if (process.env.REACT_APP_WALLET_TYPE === "WEB1") {
+      setConnected(publicCtx.auth.connected);
+      setAccount(publicCtx.auth.user);
+    } else if (process.env.REACT_APP_WALLET_TYPE === "WEB3") {
+      setConnected(publicCtx.wallet.connected);
+      if (publicCtx.wallet.connected) {
+        var acc = publicCtx.wallet.account;
+        setAccount(
+          acc.substr(0, 8) + "..." + acc.substr(acc.length - 6, acc.length)
+        );
+      }
+    }
+  }, [publicCtx]);
+
   return (
     <>
-      {publicCtx.wallet.connected ? (
+      {connected ? (
         <span
           style={{
             padding: "1px 7px",
@@ -20,9 +37,7 @@ export default function User() {
           }}
         >
           <Typography variant="subtitle2" color="inherited">
-            {account.substr(0, 8) +
-              "..." +
-              account.substr(account.length - 6, account.length)}
+            {account}
           </Typography>
         </span>
       ) : (
