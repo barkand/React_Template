@@ -11,9 +11,9 @@ import {
 } from "@mui/material";
 import { Phone as PhoneIcon, VpnKey as VpnKeyIcon } from "@mui/icons-material";
 
-import { PublicContext } from "../../../../Context/Public";
-import { SendPhone, SendCode, LoginAccount } from "../LoginWeb1";
-import { PhoneMaskCustom, CodeMaskCustom } from "../../../Mask/Mask";
+import { PublicContext } from "../../../Context/Public";
+import { SendPhone, SendCode, LoginAccount } from "./api/Rest";
+import { PhoneMaskCustom, CodeMaskCustom } from "../../Mask/Mask";
 
 const AuthState = {
   PhoneNumber: 1,

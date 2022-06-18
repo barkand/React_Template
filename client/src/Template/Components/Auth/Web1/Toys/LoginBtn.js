@@ -2,8 +2,8 @@ import React from "react";
 import { Button } from "@mui/material";
 import { Login as LoginIcon, Logout as LogoutIcon } from "@mui/icons-material";
 
-import { LogoutAccount } from "../LoginWeb1";
-import LoginDialog from "./LoginDialog";
+import { LogoutAccount } from "../api/Rest";
+import LoginDialog from "../LoginDialog";
 import { PublicContext } from "../../../../Context/Public";
 
 export default function LoginBtn() {
