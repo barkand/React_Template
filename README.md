@@ -8,12 +8,12 @@ A ready template for a quick start with react. 🚀
 
 ## Features
 
-- 🌙 Dark Mode
-- 🎨 Template color (Yellow, Blue, Green, Red, Purple)
+- 🌙 Dark Mode (DARK, LIGHT)
+- 🎨 Template Color (YELLOW, BLUE, GREEN, RED, PURPLE)
 - 📥 Header Types (STATIC, FIXED, HIDE, ELEVATE)
 - 📍 Scroll to Top
 - 📱 PWA
-- 🔑 Authentication Types (WEB3)
+- 🔑 Authentication Types (WEB1, WEB3)
 
 ## How to Edit
 
@@ -26,6 +26,15 @@ A ready template for a quick start with react. 🚀
 
 ```
  ** Only modify files of `Content` folder (client\src\Content), .env file & index.html. **
+```
+
+##### Default Values of .env file:
+
+```
+REACT_APP_THEM_MODE="DARK"          >>  DARK or LIGHT
+REACT_APP_THEM_COLOR="PURPLE"       >>  YELLOW, BLUE, GREEN, RED or PURPLE
+REACT_APP_HEADER_TYPE="STATIC"      >>  STATIC, FIXED, HIDE or ELEVATE
+REACT_APP_WALLET_TYPE= "WEB1"       >>  WEB1 or WEB3
 ```
 
 ## How to Run
