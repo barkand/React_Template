@@ -31,7 +31,7 @@ A ready template for a quick start with react. 🚀
 ##### Default Values of .env file:
 
 ```
-REACT_APP_Server=""                 >>  Empty String for Mock Web Server or
+REACT_APP_SERVER=""                 >>  Empty String for Mock Web Server or
                                     >>  Input Your Server Address for Real Server
 
 REACT_APP_THEM_MODE="DARK"          >>  DARK or LIGHT
