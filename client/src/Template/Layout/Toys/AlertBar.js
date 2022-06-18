@@ -14,7 +14,11 @@ export default function AlertBar() {
   const [msg, setMsg] = React.useState("");
   const [severity, setSeverity] = React.useState("info");
 
-  const handleClose = () => {
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
     setPublicCtx({
       ...publicCtx,
       alertBar: { open: false, message: "", severity: "info" },
