@@ -11,7 +11,7 @@ export async function LoginAccount(username, password) {
     },
     alert: {
       open: true,
-      message: "Login Wallet Success.",
+      message: "Login Account Success.",
       severity: "success",
     },
   };
@@ -22,7 +22,7 @@ export async function LogoutAccount() {
     auth: DefaultAcoount,
     alert: {
       open: true,
-      message: "Logout Wallet Success.",
+      message: "Logout Account Success.",
       severity: "success",
     },
   };
