@@ -8,7 +8,7 @@ export default function Theme({ children }) {
   const { publicCtx } = React.useContext(PublicContext);
   const muiTheme = createTheme({
     palette: {
-      mode: publicCtx.theme.mode,
+      mode: publicCtx.theme.mode.toLowerCase(),
       primary: {
         main: publicCtx.theme.primary.main,
       },

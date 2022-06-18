@@ -12,12 +12,12 @@ export default function DarkModeBtn() {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
 
   const toggleTheme = () => {
-    let newMode = publicCtx.theme.mode === "dark" ? "light" : "dark";
+    let newMode = publicCtx.theme.mode === "DARK" ? "LIGHT" : "DARK";
     setPublicCtx({
       ...publicCtx,
       theme: {
         ...publicCtx.theme,
-        mode: newMode,
+        mode: newMode.toLowerCase(),
         primary: {
           ...publicCtx.theme.primary,
           main: SetColor(newMode, publicCtx.theme.color, "Primary"),
@@ -36,7 +36,7 @@ export default function DarkModeBtn() {
       onClick={toggleTheme}
       color="inherit"
     >
-      {publicCtx.theme.mode === "dark" ? (
+      {publicCtx.theme.mode === "DARK" ? (
         <Brightness7Icon />
       ) : (
         <Brightness4Icon />
