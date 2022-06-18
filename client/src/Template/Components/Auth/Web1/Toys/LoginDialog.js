@@ -7,31 +7,61 @@ import {
   Box,
   Dialog,
 } from "@mui/material";
-import { Email as EmailIcon, VpnKey as VpnKeyIcon } from "@mui/icons-material";
+import { Phone as PhoneIcon, VpnKey as VpnKeyIcon } from "@mui/icons-material";
 
 import { PublicContext } from "../../../../Context/Public";
-import { LoginAccount } from "../LoginWeb1";
+import { SendPhone, SendCode, LoginAccount } from "../LoginWeb1";
 
 export default function LoginModal({ openModal, setOpenModal }) {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
 
-  const handleCloseModal = () => setOpenModal(false);
+  const [phoneNumber, setPhoneNumber] = React.useState("");
+  const [recieveCode, setRecieveCode] = React.useState("");
+  const [state, setState] = React.useState(1);
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setState(1);
+    setRecieveCode("");
+  };
 
   const handleLogin = () => {
-    if (username && password) {
-      async function signing() {
-        let _login = await LoginAccount(username, password);
-        setPublicCtx({
-          ...publicCtx,
-          auth: _login.auth,
-          alertBar: _login.alert,
-        });
-
-        handleCloseModal();
+    if (state === 1) {
+      async function _sendPhone() {
+        let _result = await SendPhone(phoneNumber);
+        if (_result.status === "success") {
+          setState(2);
+        } else {
+          setPublicCtx({
+            ...publicCtx,
+            alertBar: _result.alert,
+          });
+        }
       }
-      signing();
+      _sendPhone();
+    } else {
+      async function _sendCode() {
+        let _result = await SendCode(phoneNumber, recieveCode);
+        if (_result.status === "success") {
+          async function signing() {
+            let _login = await LoginAccount(phoneNumber, recieveCode);
+            setPublicCtx({
+              ...publicCtx,
+              auth: _login.auth,
+              alertBar: _login.alert,
+            });
+
+            handleCloseModal();
+          }
+          signing();
+        } else {
+          setPublicCtx({
+            ...publicCtx,
+            alertBar: _result.alert,
+          });
+        }
+      }
+      _sendCode();
     }
   };
 
@@ -53,15 +83,16 @@ export default function LoginModal({ openModal, setOpenModal }) {
 
           <Grid item>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-              <EmailIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+              <PhoneIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
               <TextField
                 id="Phone"
                 label="Phone"
                 variant="standard"
-                value={username}
+                value={phoneNumber}
                 onChange={(event) => {
-                  setUsername(event.target.value);
+                  setPhoneNumber(event.target.value);
                 }}
+                disabled={state !== 1}
               />
             </Box>
           </Grid>
@@ -70,15 +101,16 @@ export default function LoginModal({ openModal, setOpenModal }) {
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <VpnKeyIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
               <TextField
-                id="Password"
-                label="Password"
+                id="Code"
+                label="Recieve Code"
                 type="password"
                 autoComplete="current-password"
                 variant="standard"
-                value={password}
+                value={recieveCode}
                 onChange={(event) => {
-                  setPassword(event.target.value);
+                  setRecieveCode(event.target.value);
                 }}
+                disabled={state !== 2}
               />
             </Box>
           </Grid>
@@ -91,7 +123,7 @@ export default function LoginModal({ openModal, setOpenModal }) {
               sx={{ minWidth: "120px" }}
               onMouseDown={handleLogin}
             >
-              Login
+              {state === 1 ? "Send Code" : "Login"}
             </Button>
           </Grid>
         </Grid>

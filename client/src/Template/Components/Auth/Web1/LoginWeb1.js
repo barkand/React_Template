@@ -2,13 +2,58 @@ import { Default } from "../../../Context/Public";
 
 let DefaultAcoount = Default.auth;
 
-export async function LoginAccount(username, password) {
+export async function SendPhone(phoneNumber) {
+  let _result = await fetch(`${process.env.REACT_APP_SERVER}/SendMobile`, {
+    method: "POST",
+    body: JSON.stringify({ phoneNumber }),
+  }).then((res) => res.json());
+
+  if (_result.status === "success") {
+    return {
+      status: "success",
+    };
+  } else {
+    return {
+      status: "error",
+      alert: {
+        open: true,
+        message: "Phone number is not valid",
+        severity: "error",
+      },
+    };
+  }
+}
+
+export async function SendCode(phoneNumber, recieveCode) {
+  let _result = await fetch(`${process.env.REACT_APP_SERVER}/SendCode`, {
+    method: "POST",
+    body: JSON.stringify({ phoneNumber, recieveCode }),
+  }).then((res) => res.json());
+
+  if (_result.status === "success") {
+    return {
+      status: "success",
+    };
+  } else {
+    return {
+      status: "error",
+      alert: {
+        open: true,
+        message: "Code number is not valid",
+        severity: "error",
+      },
+    };
+  }
+}
+
+export async function LoginAccount(phoneNumber) {
+  let _result = await fetch(`${process.env.REACT_APP_SERVER}/login`, {
+    method: "POST",
+    body: JSON.stringify({ phoneNumber }),
+  }).then((res) => res.json());
+
   return {
-    auth: {
-      connected: true,
-      user: username,
-      token: "123",
-    },
+    auth: _result,
     alert: {
       open: true,
       message: "Login Account Success.",
