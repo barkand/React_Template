@@ -28,7 +28,7 @@ const CodeMaskCustom = React.forwardRef(function CodeMaskCustom(props, ref) {
   return (
     <IMaskInput
       {...other}
-      mask="0-0-0"
+      mask="0-0-0-0"
       inputRef={ref}
       onAccept={(value) => onChange({ target: { value } })}
       overwrite

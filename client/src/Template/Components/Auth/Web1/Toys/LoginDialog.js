@@ -24,13 +24,13 @@ export default function LoginModal({ openModal, setOpenModal }) {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
 
   const [phoneNumber, setPhoneNumber] = React.useState("(900) 000-0000");
-  const [receivedCode, setReceivedCode] = React.useState("0-0-0");
+  const [receivedCode, setReceivedCode] = React.useState("0-0-0-0");
   const [authState, setAuthState] = React.useState(AuthState.PhoneNumber);
 
   const handleCloseModal = () => {
     setOpenModal(false);
     setAuthState(AuthState.PhoneNumber);
-    setReceivedCode("");
+    setReceivedCode("0-0-0-0");
   };
 
   const handleLogin = () => {
@@ -88,7 +88,7 @@ export default function LoginModal({ openModal, setOpenModal }) {
         >
           <Grid item>
             <Typography variant="h4" gutterBottom>
-              Login
+              Sign In / Sign Up
             </Typography>
           </Grid>
 
