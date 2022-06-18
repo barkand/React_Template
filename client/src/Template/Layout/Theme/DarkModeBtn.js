@@ -17,7 +17,7 @@ export default function DarkModeBtn() {
       ...publicCtx,
       theme: {
         ...publicCtx.theme,
-        mode: newMode.toLowerCase(),
+        mode: newMode,
         primary: {
           ...publicCtx.theme.primary,
           main: SetColor(newMode, publicCtx.theme.color, "Primary"),
