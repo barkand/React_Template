@@ -1,5 +1,5 @@
 import React from "react";
-import { purple } from "@mui/material/colors";
+import SetColor from "../Layout/Theme/SetColor";
 
 function deviceType() {
   return "ontouchstart" in window || "onmsgesturechange" in window
@@ -10,13 +10,21 @@ function deviceType() {
 export const Default = {
   device: deviceType(),
   theme: {
-    mode: "dark",
-    color: "PURPLE",
+    mode: process.env.REACT_APP_THEM_MODE,
+    color: process.env.REACT_APP_THEM_COLOR,
     primary: {
-      main: purple[400],
+      main: SetColor(
+        process.env.REACT_APP_THEM_MODE,
+        process.env.REACT_APP_THEM_COLOR,
+        "Primary"
+      ),
     },
     secondary: {
-      main: purple[200],
+      main: SetColor(
+        process.env.REACT_APP_THEM_MODE,
+        process.env.REACT_APP_THEM_COLOR,
+        "Secondary"
+      ),
     },
   },
   wallet: {
