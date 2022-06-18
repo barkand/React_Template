@@ -12,25 +12,30 @@ import { Phone as PhoneIcon, VpnKey as VpnKeyIcon } from "@mui/icons-material";
 import { PublicContext } from "../../../../Context/Public";
 import { SendPhone, SendCode, LoginAccount } from "../LoginWeb1";
 
+const AuthState = {
+  PhoneNumber: 1,
+  ReceivedCode: 2,
+};
+
 export default function LoginModal({ openModal, setOpenModal }) {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
 
   const [phoneNumber, setPhoneNumber] = React.useState("");
-  const [recieveCode, setRecieveCode] = React.useState("");
-  const [state, setState] = React.useState(1);
+  const [receivedCode, setReceivedCode] = React.useState("");
+  const [authState, setAuthState] = React.useState(AuthState.PhoneNumber);
 
   const handleCloseModal = () => {
     setOpenModal(false);
-    setState(1);
-    setRecieveCode("");
+    setAuthState(AuthState.PhoneNumber);
+    setReceivedCode("");
   };
 
   const handleLogin = () => {
-    if (state === 1) {
+    if (authState === AuthState.PhoneNumber) {
       async function _sendPhone() {
         let _result = await SendPhone(phoneNumber);
         if (_result.status === "success") {
-          setState(2);
+          setAuthState(AuthState.ReceivedCode);
         } else {
           setPublicCtx({
             ...publicCtx,
@@ -41,10 +46,10 @@ export default function LoginModal({ openModal, setOpenModal }) {
       _sendPhone();
     } else {
       async function _sendCode() {
-        let _result = await SendCode(phoneNumber, recieveCode);
+        let _result = await SendCode(phoneNumber, receivedCode);
         if (_result.status === "success") {
           async function signing() {
-            let _login = await LoginAccount(phoneNumber, recieveCode);
+            let _login = await LoginAccount(phoneNumber, receivedCode);
             setPublicCtx({
               ...publicCtx,
               auth: _login.auth,
@@ -92,7 +97,7 @@ export default function LoginModal({ openModal, setOpenModal }) {
                 onChange={(event) => {
                   setPhoneNumber(event.target.value);
                 }}
-                disabled={state !== 1}
+                disabled={authState !== AuthState.PhoneNumber}
               />
             </Box>
           </Grid>
@@ -102,15 +107,15 @@ export default function LoginModal({ openModal, setOpenModal }) {
               <VpnKeyIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
               <TextField
                 id="Code"
-                label="Recieve Code"
+                label="Received Code"
                 type="password"
                 autoComplete="current-password"
                 variant="standard"
-                value={recieveCode}
+                value={receivedCode}
                 onChange={(event) => {
-                  setRecieveCode(event.target.value);
+                  setReceivedCode(event.target.value);
                 }}
-                disabled={state !== 2}
+                disabled={authState !== AuthState.ReceivedCode}
               />
             </Box>
           </Grid>
@@ -123,7 +128,7 @@ export default function LoginModal({ openModal, setOpenModal }) {
               sx={{ minWidth: "120px" }}
               onMouseDown={handleLogin}
             >
-              {state === 1 ? "Send Code" : "Login"}
+              {authState === AuthState.PhoneNumber ? "Send Code" : "Login"}
             </Button>
           </Grid>
         </Grid>

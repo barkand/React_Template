@@ -14,7 +14,7 @@ export const handlers = [
 
     return res(
       ctx.json({
-        status: params.recieveCode === "123" ? "success" : "error",
+        status: params.receivedCode === "123" ? "success" : "error",
       })
     );
   }),

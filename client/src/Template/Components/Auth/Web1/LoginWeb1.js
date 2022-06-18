@@ -1,6 +1,6 @@
 import { Default } from "../../../Context/Public";
 
-let DefaultAcoount = Default.auth;
+let DefaultAccount = Default.auth;
 
 export async function SendPhone(phoneNumber) {
   let _result = await fetch(`${process.env.REACT_APP_SERVER}/SendMobile`, {
@@ -24,10 +24,10 @@ export async function SendPhone(phoneNumber) {
   }
 }
 
-export async function SendCode(phoneNumber, recieveCode) {
+export async function SendCode(phoneNumber, receivedCode) {
   let _result = await fetch(`${process.env.REACT_APP_SERVER}/SendCode`, {
     method: "POST",
-    body: JSON.stringify({ phoneNumber, recieveCode }),
+    body: JSON.stringify({ phoneNumber, receivedCode }),
   }).then((res) => res.json());
 
   if (_result.status === "success") {
@@ -64,11 +64,11 @@ export async function LoginAccount(phoneNumber) {
 
 export async function LogoutAccount() {
   return {
-    auth: DefaultAcoount,
+    auth: DefaultAccount,
     alert: {
       open: true,
       message: "Logout Account Success.",
-      severity: "success",
+      severity: "warning",
     },
   };
 }
