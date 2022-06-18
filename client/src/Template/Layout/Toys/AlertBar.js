@@ -22,9 +22,9 @@ export default function AlertBar() {
   };
 
   React.useEffect(() => {
-    setOpen(publicCtx.alertBar.open);
     setMsg(publicCtx.alertBar.message);
     setSeverity(publicCtx.alertBar.severity);
+    setOpen(publicCtx.alertBar.open);
   }, [publicCtx.alertBar]);
 
   return (
