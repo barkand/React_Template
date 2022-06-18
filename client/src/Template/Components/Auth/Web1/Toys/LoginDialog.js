@@ -3,14 +3,17 @@ import {
   Typography,
   Button,
   Grid,
-  TextField,
   Box,
   Dialog,
+  FormControl,
+  Input,
+  InputLabel,
 } from "@mui/material";
 import { Phone as PhoneIcon, VpnKey as VpnKeyIcon } from "@mui/icons-material";
 
 import { PublicContext } from "../../../../Context/Public";
 import { SendPhone, SendCode, LoginAccount } from "../LoginWeb1";
+import { PhoneMaskCustom, CodeMaskCustom } from "../../../Mask/Mask";
 
 const AuthState = {
   PhoneNumber: 1,
@@ -20,8 +23,8 @@ const AuthState = {
 export default function LoginModal({ openModal, setOpenModal }) {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
 
-  const [phoneNumber, setPhoneNumber] = React.useState("");
-  const [receivedCode, setReceivedCode] = React.useState("");
+  const [phoneNumber, setPhoneNumber] = React.useState("(900) 000-0000");
+  const [receivedCode, setReceivedCode] = React.useState("0-0-0");
   const [authState, setAuthState] = React.useState(AuthState.PhoneNumber);
 
   const handleCloseModal = () => {
@@ -46,10 +49,13 @@ export default function LoginModal({ openModal, setOpenModal }) {
       _sendPhone();
     } else {
       async function _sendCode() {
-        let _result = await SendCode(phoneNumber, receivedCode);
+        let _result = await SendCode(
+          phoneNumber,
+          receivedCode.replace(/-/g, "")
+        );
         if (_result.status === "success") {
           async function signing() {
-            let _login = await LoginAccount(phoneNumber, receivedCode);
+            let _login = await LoginAccount(phoneNumber);
             setPublicCtx({
               ...publicCtx,
               auth: _login.auth,
@@ -89,34 +95,39 @@ export default function LoginModal({ openModal, setOpenModal }) {
           <Grid item>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <PhoneIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
-              <TextField
-                id="Phone"
-                label="Phone"
-                variant="standard"
-                value={phoneNumber}
-                onChange={(event) => {
-                  setPhoneNumber(event.target.value);
-                }}
-                disabled={authState !== AuthState.PhoneNumber}
-              />
+              <FormControl variant="standard">
+                <InputLabel htmlFor="phone-input">Phone</InputLabel>
+                <Input
+                  id="phone"
+                  variant="standard"
+                  value={phoneNumber}
+                  onChange={(event) => {
+                    setPhoneNumber(event.target.value);
+                  }}
+                  disabled={authState !== AuthState.PhoneNumber}
+                  inputComponent={PhoneMaskCustom}
+                />
+              </FormControl>
             </Box>
           </Grid>
 
           <Grid item>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <VpnKeyIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
-              <TextField
-                id="Code"
-                label="Received Code"
-                type="password"
-                autoComplete="current-password"
-                variant="standard"
-                value={receivedCode}
-                onChange={(event) => {
-                  setReceivedCode(event.target.value);
-                }}
-                disabled={authState !== AuthState.ReceivedCode}
-              />
+              <FormControl variant="standard">
+                <InputLabel htmlFor="Code-input">Received Code</InputLabel>
+                <Input
+                  id="Code"
+                  autoComplete="off"
+                  variant="standard"
+                  value={receivedCode}
+                  onChange={(event) => {
+                    setReceivedCode(event.target.value);
+                  }}
+                  disabled={authState !== AuthState.ReceivedCode}
+                  inputComponent={CodeMaskCustom}
+                />
+              </FormControl>
             </Box>
           </Grid>
 
