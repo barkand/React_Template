@@ -1,10 +1,14 @@
 import { Default } from "../../../../Context/Public";
 
 let DefaultAccount = Default.auth;
+let Api_URL = `${process.env.REACT_APP_SERVER_URL}/api`;
 
 export async function SendPhone(phoneNumber) {
-  let _result = await fetch(`${process.env.REACT_APP_SERVER}/SendMobile`, {
+  let _result = await fetch(`${Api_URL}/SendMobile`, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({ phoneNumber }),
   }).then((res) => res.json());
 
@@ -25,8 +29,11 @@ export async function SendPhone(phoneNumber) {
 }
 
 export async function SendCode(phoneNumber, receivedCode) {
-  let _result = await fetch(`${process.env.REACT_APP_SERVER}/SendCode`, {
+  let _result = await fetch(`${Api_URL}/SendCode`, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({ phoneNumber, receivedCode }),
   }).then((res) => res.json());
 
@@ -47,8 +54,11 @@ export async function SendCode(phoneNumber, receivedCode) {
 }
 
 export async function LoginAccount(phoneNumber) {
-  let _result = await fetch(`${process.env.REACT_APP_SERVER}/login`, {
+  let _result = await fetch(`${Api_URL}/login`, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({ phoneNumber }),
   }).then((res) => res.json());
 
