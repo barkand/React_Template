@@ -1,7 +1,7 @@
 import { rest } from "msw";
-import { v4 as uuidv4 } from "uuid";
+import { v4 } from "uuid";
 
-export const handlers = [
+const handlers = [
   rest.post("/SendMobile", (req, res, ctx) => {
     return res(
       ctx.json({
@@ -25,9 +25,11 @@ export const handlers = [
       ctx.json({
         connected: true,
         user: params.phoneNumber,
-        token: uuidv4(),
-        refreshToken: uuidv4(),
+        token: v4(),
+        refreshToken: v4(),
       })
     );
   }),
 ];
+
+export default handlers;
