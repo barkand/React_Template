@@ -37,7 +37,7 @@ REACT_APP_SERVER=""                 >>  Empty String for Mock Web Server or
 REACT_APP_THEM_MODE="DARK"          >>  DARK or LIGHT
 REACT_APP_THEM_COLOR="PURPLE"       >>  YELLOW, BLUE, GREEN, RED or PURPLE
 REACT_APP_HEADER_TYPE="STATIC"      >>  STATIC, FIXED, HIDE or ELEVATE
-REACT_APP_WALLET_TYPE= "WEB1"       >>  WEB1 or WEB3
+REACT_APP_WALLET_TYPE="WEB3"        >>  WEB1 or WEB3
 ```
 
 ## How to Run
