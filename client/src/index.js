@@ -7,7 +7,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import "./Template/assets/styles/index.css";
 
 if (process.env.NODE_ENV === "development") {
-  const { worker } = require("./mocks/browser");
+  const { worker } = require("./mocks/Rest/browser");
   worker.start();
 }
 
