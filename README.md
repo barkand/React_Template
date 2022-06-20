@@ -2,8 +2,6 @@ A ready template for a quick start with react. 🚀
 
 [Demo](https://start.aionchain.co/)
 
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-
 ---
 
 ## ✨ Features
@@ -46,6 +44,8 @@ REACT_APP_WALLET_TYPE="WEB3"        >>  WEB1 or WEB3
 
 ## ⚡️ How to Run
 
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+
 #### Frontend:
 
 In the `client` directory, you can run:
@@ -56,6 +56,8 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ---
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 
 #### Backend:
 
@@ -70,6 +72,16 @@ Then in the `server` directory, you can run:
 ### `nodemon app`
 
 Open [http://localhost:4000](http://localhost:4000) to view it in your browser.
+
+---
+
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+
+#### Database:
+
+You can use Docker to run the database.
+
+[Mongodb](https://github.com/barkand/Docker_DE/blob/main/databases/mongodb-docker-compose.yml)
 
 ---
 
