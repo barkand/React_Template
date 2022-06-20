@@ -1,7 +1,7 @@
 import { Default } from "../../../../Context/Public";
 
 let DefaultAccount = Default.auth;
-let Api_URL = `${process.env.REACT_APP_SERVER_URL}/api`;
+let Api_URL = `${process.env.REACT_APP_SERVER_URL}/api/${process.env.REACT_APP_API_VERSION}`;
 
 export async function SendPhone(phoneNumber) {
   let _result = await fetch(`${Api_URL}/SendMobile`, {
