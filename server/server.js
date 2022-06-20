@@ -1,10 +1,11 @@
-const express = require("express");
-var api = require("./api");
+const app = require("express")();
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
-const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", process.env.CLIENT_URL);
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -19,12 +20,13 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use("/api", api);
-
 app.get("/", (req, res) => {
   res.send("/api");
 });
 
-app.listen(4000, () => {
-  console.log("Server is running on port 4000");
+var apiRouter = require(`./api/v1/${process.env.API_TYPE}/api`);
+app.use("/api", apiRouter);
+
+app.listen(process.env.SERVER_PORT, () => {
+  console.log(`Server is running on port ${process.env.SERVER_PORT}`);
 });
