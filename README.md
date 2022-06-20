@@ -12,6 +12,7 @@ A ready template for a quick start with react. 🚀
 - 📍 Scroll to Top
 - 📱 PWA
 - 🔑 Authentication Types (WEB1, WEB3)
+- 💾 Database Types (MONGO, MARIA)
 
 ---
 
@@ -28,18 +29,6 @@ A ready template for a quick start with react. 🚀
  ** Only modify files of `Content` folder (client\src\Content), .env file & index.html. **
 ```
 
-##### Default Values of .env file:
-
-```
-REACT_APP_SERVER_URL=""             >>  Empty String for Mock Web Server or
-                                    >>  Input Your Server Address for Real Server
-
-REACT_APP_THEM_MODE="DARK"          >>  DARK or LIGHT
-REACT_APP_THEM_COLOR="PURPLE"       >>  YELLOW, BLUE, GREEN, RED or PURPLE
-REACT_APP_HEADER_TYPE="STATIC"      >>  STATIC, FIXED, HIDE or ELEVATE
-REACT_APP_WALLET_TYPE="WEB3"        >>  WEB1 or WEB3
-```
-
 ---
 
 ## ⚡️ How to Run
@@ -54,6 +43,20 @@ In the `client` directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+##
+
+##### Default Values of .env file:
+
+```
+REACT_APP_SERVER_URL=""             >>  Empty String for Mock Web Server or
+                                    >>  Input Your Server Address for Real Server
+
+REACT_APP_THEM_MODE="DARK"          >>  DARK or LIGHT
+REACT_APP_THEM_COLOR="PURPLE"       >>  YELLOW, BLUE, GREEN, RED or PURPLE
+REACT_APP_HEADER_TYPE="STATIC"      >>  STATIC, FIXED, HIDE or ELEVATE
+REACT_APP_WALLET_TYPE="WEB3"        >>  WEB1 or WEB3
+```
 
 ---
 
@@ -75,13 +78,14 @@ Open [http://localhost:4000](http://localhost:4000) to view it in your browser.
 
 ---
 
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-%230081CB.svg?style=for-the-badge&logo=mariadb&logoColor=white)
 
 #### Database:
 
 You can use Docker to run the database.
 
-[Mongodb](https://github.com/barkand/Docker_DE/blob/main/databases/mongodb-docker-compose.yml)
+[MongoDB](https://github.com/barkand/Docker_DE/blob/main/databases/mongodb-docker-compose.yml)
+[MariaDB](https://github.com/barkand/Docker_DE/blob/main/databases/mariadb-docker-compose.yml)
 
 ---
 
