@@ -1,11 +1,13 @@
 const express = require("express");
 
-var { SaveUser } = require(`../../../database/${process.env.DATABASE}/auth`);
+var {
+  SaveUser,
+} = require(`../../../database/${process.env.DATABASE.toLowerCase()}/auth`);
 
 var router = express.Router();
 router.use(express.json());
 
-let Api_Version = process.env.API_VERSION;
+let Api_Version = process.env.API_VERSION.toLowerCase();
 
 router.get("/", (req, res) => {
   res.send(
