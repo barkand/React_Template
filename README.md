@@ -78,7 +78,7 @@ Open [http://localhost:4000](http://localhost:4000) to view it in your browser.
 
 ---
 
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-%230081CB.svg?style=for-the-badge&logo=mariadb&logoColor=white)
+![docker](https://img.shields.io/badge/docker-%230073CF.svg?style=for-the-badge&logo=docker&logoColor=%2361DAFB) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-%230081CB.svg?style=for-the-badge&logo=mariadb&logoColor=white)
 
 #### Database:
 
