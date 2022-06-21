@@ -2,14 +2,14 @@ import { rest } from "msw";
 import { v4 } from "uuid";
 
 const handlers = [
-  rest.post("/SendMobile", (req, res, ctx) => {
+  rest.post("/sendMobile", (req, res, ctx) => {
     return res(
       ctx.json({
         status: "success",
       })
     );
   }),
-  rest.post("/SendCode", (req, res, ctx) => {
+  rest.post("/sendCode", (req, res, ctx) => {
     const params = JSON.parse(req.body);
 
     return res(

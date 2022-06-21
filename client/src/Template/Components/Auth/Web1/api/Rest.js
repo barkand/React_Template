@@ -4,7 +4,7 @@ let DefaultAccount = Default.auth;
 let Api_URL = `${process.env.REACT_APP_SERVER_URL}/api/${process.env.REACT_APP_API_VERSION}`;
 
 export async function SendPhone(phoneNumber) {
-  let _result = await fetch(`${Api_URL}/SendMobile`, {
+  let _result = await fetch(`${Api_URL}/sendMobile`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export async function SendPhone(phoneNumber) {
 }
 
 export async function SendCode(phoneNumber, receivedCode) {
-  let _result = await fetch(`${Api_URL}/SendCode`, {
+  let _result = await fetch(`${Api_URL}/sendCode`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
