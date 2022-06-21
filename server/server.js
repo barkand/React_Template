@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
   res.send("/api");
 });
 
-var apiRouter = require(`./api/${process.env.API_VERSION.toLowerCase()}/${process.env.API_TYPE.toLowerCase()}/api`);
+var apiRouter = require(`./api/${process.env.API_VERSION.toLowerCase()}/${process.env.API_TYPE.toLowerCase()}/routers`);
 app.use("/api", apiRouter);
 
 app.listen(process.env.SERVER_PORT, () => {

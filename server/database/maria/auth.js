@@ -1,6 +1,6 @@
 const mariadb = require("mariadb");
 
-let SaveUser = async (username) => {
+let SaveUser = async (username, token) => {
   const conn = await mariadb.createConnection({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -14,7 +14,10 @@ let SaveUser = async (username) => {
       username,
     ]);
     if (rows && rows.length == 0) {
-      await conn.query("INSERT INTO `user`(username) value (?)", [username]);
+      await conn.query("INSERT INTO `user`(username, token) value (?)", [
+        username,
+        token,
+      ]);
     }
   } finally {
     conn.end();
