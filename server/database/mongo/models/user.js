@@ -13,6 +13,7 @@ const UserSchema = new Schema({
     unique: true,
   },
   token: { type: String },
+  refresh_token: { type: String },
 });
 
 const UserModel = mongoose.model("User", UserSchema);

@@ -44,6 +44,7 @@ export const Default = {
     connected: false,
     user: "",
     token: "",
+    refreshToken: "",
   },
   alertBar: {
     open: false,

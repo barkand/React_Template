@@ -1,6 +1,7 @@
 var {
   SaveUser,
 } = require(`../../../../database/${process.env.DATABASE.toLowerCase()}/auth`);
+const { createToken } = require("../../../../auth/jwt");
 
 module.exports = new (class AuthController {
   SendMobile = (req, res) => {
@@ -16,14 +17,14 @@ module.exports = new (class AuthController {
   };
 
   Login = (req, res) => {
-    let phoneNumber = req.body.phoneNumber;
-    let token = "333";
-    let refreshToken = "333";
+    let userId = req.body.phoneNumber;
+    let { token, refreshToken } = createToken(userId);
 
-    SaveUser(phoneNumber, token);
+    SaveUser(userId, token, refreshToken);
+
     res.send({
       connected: true,
-      user: phoneNumber,
+      user: userId,
       token: token,
       refreshToken: refreshToken,
     });

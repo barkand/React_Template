@@ -3,5 +3,6 @@ CREATE TABLE user(
     create_time DATETIME COMMENT 'Create Time',
     update_time DATETIME COMMENT 'Update Time',
     username VARCHAR(255) COMMENT 'username',
-    token VARCHAR(255) COMMENT 'token',
+    token VARCHAR(255) COMMENT 'Token',
+    refresh_token VARCHAR(255) COMMENT 'Refresh Token',
 ) DEFAULT CHARSET UTF8 COMMENT 'user';
