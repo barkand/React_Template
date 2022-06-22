@@ -23,7 +23,9 @@ const AuthState = {
 export default function LoginModal({ openModal, setOpenModal }) {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
 
-  const [phoneNumber, setPhoneNumber] = React.useState("(+01) 900-000-0000");
+  const [phoneNumber, setPhoneNumber] = React.useState(
+    `(+${process.env.REACT_APP_COUNTRY_CODE}) 900-000-0000`
+  );
   const [receivedCode, setReceivedCode] = React.useState("0-0-0-0");
   const [authState, setAuthState] = React.useState(AuthState.PhoneNumber);
 
