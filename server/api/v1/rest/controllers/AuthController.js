@@ -14,7 +14,7 @@ module.exports = new (class AuthController {
   SendCode = (req, res) => {
     let phoneNumber = req.body.phoneNumber;
     const sanitized_number = phoneNumber.toString().replace(/[- )(]/g, "");
-    let receivedCode = req.body.receivedCode;
+    let receivedCode = req.body.receivedCode.replace(/-/g, "");
 
     res.send({ status: receivedCode === "1234" ? "success" : "error" });
   };

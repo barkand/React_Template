@@ -49,10 +49,7 @@ export default function LoginModal({ openModal, setOpenModal }) {
       _sendPhone();
     } else {
       async function _sendCode() {
-        let _result = await SendCode(
-          phoneNumber,
-          receivedCode.replace(/-/g, "")
-        );
+        let _result = await SendCode(phoneNumber, receivedCode);
         if (_result.status === "success") {
           async function signing() {
             let _login = await LoginAccount(phoneNumber);
