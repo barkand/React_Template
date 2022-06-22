@@ -40,7 +40,7 @@ export const Default = {
     },
     gasLimit: "30000000",
   },
-  auth: {
+  auth: JSON.parse(localStorage.getItem("auth")) || {
     connected: false,
     user: "",
     token: "",

@@ -59,6 +59,8 @@ export default function LoginModal({ openModal, setOpenModal }) {
               alertBar: _login.alert,
             });
 
+            localStorage.setItem("auth", JSON.stringify(_login.auth));
+
             handleCloseModal();
           }
           signing();

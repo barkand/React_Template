@@ -12,6 +12,8 @@ export default function LoginBtn() {
 
   const loginClick = async () => {
     if (publicCtx.auth.connected) {
+      await localStorage.removeItem("auth");
+
       let _logout = await LogoutAccount();
       setPublicCtx({
         ...publicCtx,
