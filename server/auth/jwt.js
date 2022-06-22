@@ -27,4 +27,4 @@ const getAuthencatedUser = (req) => {
   }
 };
 
-module.exports = { createToken };
+module.exports = { createToken, getAuthencatedUser };
