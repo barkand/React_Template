@@ -6,13 +6,16 @@ const { createToken } = require("../../../../auth/jwt");
 module.exports = new (class AuthController {
   SendMobile = (req, res) => {
     let phoneNumber = req.body.phoneNumber;
+    const sanitized_number = phoneNumber.toString().replace(/[- )(]/g, "");
 
     res.send({ status: "success" });
   };
 
   SendCode = (req, res) => {
     let phoneNumber = req.body.phoneNumber;
+    const sanitized_number = phoneNumber.toString().replace(/[- )(]/g, "");
     let receivedCode = req.body.receivedCode;
+
     res.send({ status: receivedCode === "1234" ? "success" : "error" });
   };
 
