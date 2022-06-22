@@ -40,7 +40,7 @@ export const Default = {
     },
     gasLimit: "30000000",
   },
-  auth: JSON.parse(localStorage.getItem("auth")) || {
+  auth: {
     connected: false,
     user: "",
     token: "",
@@ -65,4 +65,8 @@ export const PublicProvider = ({ children }) => {
   return (
     <PublicContext.Provider value={value}>{children}</PublicContext.Provider>
   );
+};
+
+export const SetDefault = () => {
+  Default.auth = JSON.parse(localStorage.getItem("auth")) || Default.auth;
 };
