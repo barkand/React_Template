@@ -26,6 +26,8 @@ const SendMail = async (mail_to, subject, content) => {
       return { status: "success" };
     }
   });
+
+  return { status: "success" };
 };
 
 module.exports = SendMail;
