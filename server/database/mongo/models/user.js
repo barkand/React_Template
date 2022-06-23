@@ -14,6 +14,8 @@ const UserSchema = new Schema({
   },
   token: { type: String },
   refresh_token: { type: String },
+  code: { type: String },
+  code_expire: { type: Date },
 });
 
 const UserModel = mongoose.model("User", UserSchema);

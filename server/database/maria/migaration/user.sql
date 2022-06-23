@@ -6,3 +6,6 @@ CREATE TABLE user(
     token VARCHAR(255) COMMENT 'Token',
     refresh_token VARCHAR(255) COMMENT 'Refresh Token',
 ) DEFAULT CHARSET UTF8 COMMENT 'user';
+
+ALTER TABLE `user` ADD COLUMN code INT COMMENT 'Code';
+ALTER TABLE `user` ADD COLUMN code_expire DATETIME COMMENT 'Code Expire';
