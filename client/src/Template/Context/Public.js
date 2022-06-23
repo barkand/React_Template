@@ -1,15 +1,32 @@
 import React from "react";
+
+import { DefaultPublic } from "./Default";
 import SetColor from "../Layout/Theme/SetColor";
 
-function deviceType() {
-  return "ontouchstart" in window || "onmsgesturechange" in window
-    ? "mobile"
-    : "web";
-}
+export const PublicContext = React.createContext({
+  publicCtx: "",
+  setPublicCtx: () => {},
+});
 
-export const Default = {
-  device: deviceType(),
-  theme: {
+export const PublicProvider = ({ children }) => {
+  let Default = FillDefaulePublic();
+  const [publicCtx, setPublicCtx] = React.useState(Default);
+  const value = React.useMemo(() => ({ publicCtx, setPublicCtx }), [publicCtx]);
+
+  return (
+    <PublicContext.Provider value={value}>{children}</PublicContext.Provider>
+  );
+};
+
+const FillDefaulePublic = () => {
+  let Default = { ...DefaultPublic };
+
+  Default.device =
+    "ontouchstart" in window || "onmsgesturechange" in window
+      ? "mobile"
+      : "web";
+
+  Default.theme = {
     mode: process.env.REACT_APP_THEM_MODE,
     color: process.env.REACT_APP_THEM_COLOR,
     primary: {
@@ -26,47 +43,9 @@ export const Default = {
         "Secondary"
       ),
     },
-  },
-  wallet: {
-    connected: false,
-    library: null,
-    network: null,
-    networkId: 0,
-    account: "0x",
-    chainId: 0,
-    balance: {
-      eth: 0,
-      wei: 0,
-    },
-    gasLimit: "30000000",
-  },
-  auth: {
-    connected: false,
-    user: "",
-    token: "",
-    refreshToken: "",
-  },
-  alertBar: {
-    open: false,
-    message: "",
-    severity: "info",
-  },
-};
+  };
 
-export const PublicContext = React.createContext({
-  publicCtx: "",
-  setPublicCtx: () => {},
-});
+  Default.auth = JSON.parse(localStorage.getItem("auth")) || DefaultPublic.auth;
 
-export const PublicProvider = ({ children }) => {
-  const [publicCtx, setPublicCtx] = React.useState(Default);
-  const value = React.useMemo(() => ({ publicCtx, setPublicCtx }), [publicCtx]);
-
-  return (
-    <PublicContext.Provider value={value}>{children}</PublicContext.Provider>
-  );
-};
-
-export const SetDefault = () => {
-  Default.auth = JSON.parse(localStorage.getItem("auth")) || Default.auth;
+  return Default;
 };

@@ -1,8 +1,8 @@
 import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import { Default } from "../../../Context/Public";
+import { DefaultPublic } from "../../../Context/Default";
 
-let DefaultWallet = Default.wallet;
+let DefaultWallet = DefaultPublic.wallet;
 
 export async function FillWallet(deviceType) {
   // web3
