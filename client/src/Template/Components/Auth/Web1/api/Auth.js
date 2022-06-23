@@ -3,13 +3,29 @@ import { PostRestApi } from "./Rest";
 
 export async function SendUserName(username) {
   try {
-    await PostRestApi(
+    let _result = await PostRestApi(
       process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
         ? "sendMobile"
         : "sendMail",
       { username }
     );
-    return { status: "success" };
+
+    if (_result.status === 200) {
+      return { status: "success" };
+    } else {
+      return {
+        status: "error",
+        alert: {
+          open: true,
+          message: `${
+            process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+              ? "Mobile number"
+              : "Email"
+          } is not valid`,
+          severity: "error",
+        },
+      };
+    }
   } catch (error) {
     return {
       status: "error",
@@ -28,13 +44,25 @@ export async function SendUserName(username) {
 
 export async function SendCode(username, receivedCode) {
   try {
-    await PostRestApi(
+    let _result = await PostRestApi(
       process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
         ? "sendMobileCode"
         : "sendMailCode",
       { username, receivedCode }
     );
-    return { status: "success" };
+    console.log(_result.status);
+    if (_result.status === 200) {
+      return { status: "success" };
+    } else {
+      return {
+        status: "error",
+        alert: {
+          open: true,
+          message: "Code number is not valid",
+          severity: "error",
+        },
+      };
+    }
   } catch (error) {
     return {
       status: "error",
