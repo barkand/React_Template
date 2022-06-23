@@ -1,25 +1,27 @@
 import { rest } from "msw";
 import { v4 } from "uuid";
 
+let apiURL = `/api/${process.env.REACT_APP_API_VERSION.toLowerCase()}/`;
+
 const handlers = [
-  rest.post("/sendMobile", (req, res, ctx) => {
+  rest.post(`${apiURL}sendMobile`, (req, res, ctx) => {
     return res(
       ctx.json({
         status: "success",
       })
     );
   }),
-  rest.post("/sendCode", (req, res, ctx) => {
-    const params = JSON.parse(req.body);
+  rest.post(`${apiURL}sendCode`, (req, res, ctx) => {
+    const params = req.body;
 
     return res(
       ctx.json({
-        status: params.receivedCode === "1234" ? "success" : "error",
+        status: params.receivedCode === "1-2-3-4" ? "success" : "error",
       })
     );
   }),
-  rest.post("/login", (req, res, ctx) => {
-    const params = JSON.parse(req.body);
+  rest.post(`${apiURL}login`, (req, res, ctx) => {
+    const params = req.body;
 
     return res(
       ctx.json({

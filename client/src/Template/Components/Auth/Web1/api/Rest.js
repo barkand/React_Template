@@ -1,86 +1,86 @@
-import { Default } from "../../../../Context/Public";
+import axios from "axios";
 
-let DefaultAccount = Default.auth;
-let Api_URL = `${
+let apiURL = `${
   process.env.REACT_APP_SERVER_URL
-}/api/${process.env.REACT_APP_API_VERSION.toLowerCase()}`;
+}/api/${process.env.REACT_APP_API_VERSION.toLowerCase()}/`;
 
-export async function SendPhone(phoneNumber) {
-  let _result = await fetch(`${Api_URL}/sendMobile`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ phoneNumber }),
-  }).then((res) => res.json());
+let queryString = function (params, prefix) {
+  const query = Object.keys(params).map((key) => {
+    const value = params[key];
 
-  if (_result.status === "success") {
-    return {
-      status: "success",
-    };
-  } else {
-    return {
-      status: "error",
-      alert: {
-        open: true,
-        message: "Phone number is not valid",
-        severity: "error",
-      },
-    };
+    if (params.constructor === Array) key = `${prefix}`;
+    else if (params.constructor === Object)
+      key = prefix ? `${prefix}[${key}]` : key;
+
+    if (typeof value === "object") return queryString(value, key);
+    else return `${key}=${encodeURIComponent(value)}`;
+  });
+
+  return [].concat.apply([], query).join("&");
+};
+
+let axiosInstance;
+
+const api = () => {
+  let token = JSON.parse(localStorage.getItem("auth"))?.token;
+
+  if (
+    !axiosInstance ||
+    axiosInstance.defaults.headers.common.Authorization !== token
+  ) {
+    axiosInstance = axios.create({
+      baseURL: apiURL,
+      headers: { "Content-Type": "application/json" },
+    });
   }
-}
 
-export async function SendCode(phoneNumber, receivedCode) {
-  let _result = await fetch(`${Api_URL}/sendCode`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  axiosInstance.interceptors.request.use((config) => {
+    config.headers["User-Lang"] = "en-US";
+
+    if (token) {
+      config.headers["Authorization"] = `Bearer ${token}`;
+    }
+
+    return config;
+  });
+
+  axiosInstance.interceptors.response.use(
+    (response) => {
+      return response;
     },
-    body: JSON.stringify({ phoneNumber, receivedCode }),
-  }).then((res) => res.json());
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
 
-  if (_result.status === "success") {
-    return {
-      status: "success",
-    };
-  } else {
-    return {
-      status: "error",
-      alert: {
-        open: true,
-        message: "Code number is not valid",
-        severity: "error",
-      },
-    };
-  }
-}
+  return axiosInstance;
+};
 
-export async function LoginAccount(phoneNumber) {
-  let _result = await fetch(`${Api_URL}/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ phoneNumber }),
-  }).then((res) => res.json());
+export const GetRestApi = (api_name, query) => {
+  return new Promise((resolve, reject) => {
+    api()
+      .get(api_name, {
+        params: query,
+        paramsSerializer: (params) => queryString(params),
+      })
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
 
-  return {
-    auth: _result,
-    alert: {
-      open: true,
-      message: "Login Account Success.",
-      severity: "success",
-    },
-  };
-}
-
-export async function LogoutAccount() {
-  return {
-    auth: DefaultAccount,
-    alert: {
-      open: true,
-      message: "Logout Account Success.",
-      severity: "warning",
-    },
-  };
-}
+export const PostRestApi = (api_name, params) => {
+  return new Promise((resolve, reject) => {
+    api()
+      .post(api_name, params)
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
