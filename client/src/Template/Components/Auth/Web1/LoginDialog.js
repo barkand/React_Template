@@ -12,7 +12,7 @@ import {
 import { Phone as PhoneIcon, VpnKey as VpnKeyIcon } from "@mui/icons-material";
 
 import { PublicContext } from "../../../Context/Public";
-import { SendPhone, SendCode, LoginAccount } from "./api/Rest";
+import { SendPhone, SendCode, LoginAccount } from "./api/Auth";
 import { PhoneMaskCustom, CodeMaskCustom } from "../../Mask/Mask";
 
 const AuthState = {

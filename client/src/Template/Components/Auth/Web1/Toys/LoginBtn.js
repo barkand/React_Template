@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@mui/material";
 import { Login as LoginIcon, Logout as LogoutIcon } from "@mui/icons-material";
 
-import { LogoutAccount } from "../api/Rest";
+import { LogoutAccount } from "../api/Auth";
 import LoginDialog from "../LoginDialog";
 import { PublicContext } from "../../../../Context/Public";
 
