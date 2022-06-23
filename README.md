@@ -12,7 +12,7 @@ A ready template for a quick start with react. 🚀
 - 📍 Scroll to Top
 - 📱 PWA
 - 🔒️ Authentication Types (WEB1, WEB3)
-  - 🔑 Web1 Authentication Types (EMAIL, PHONE)
+  - 🔑 Web1 Authentication Types (EMAIL, MOBILE)
 - 💾 Database Types (MONGO, MARIA)
 
 ---
