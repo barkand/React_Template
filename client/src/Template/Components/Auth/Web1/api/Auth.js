@@ -1,25 +1,39 @@
-import { Default } from "../../../../Context/Public";
+import { DefaultPublic } from "../../../../Context/Default";
 import { PostRestApi } from "./Rest";
 
-export async function SendPhone(phoneNumber) {
+export async function SendUserName(username) {
   try {
-    await PostRestApi("sendMobile", { phoneNumber });
+    await PostRestApi(
+      process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+        ? "sendMobile"
+        : "sendMail",
+      { username }
+    );
     return { status: "success" };
   } catch (error) {
     return {
       status: "error",
       alert: {
         open: true,
-        message: "Phone number is not valid",
+        message: `${
+          process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+            ? "Mobile number"
+            : "Email"
+        } is not valid`,
         severity: "error",
       },
     };
   }
 }
 
-export async function SendCode(phoneNumber, receivedCode) {
+export async function SendCode(username, receivedCode) {
   try {
-    await PostRestApi("sendCode", { phoneNumber, receivedCode });
+    await PostRestApi(
+      process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+        ? "sendMobileCode"
+        : "sendMailCode",
+      { username, receivedCode }
+    );
     return { status: "success" };
   } catch (error) {
     return {
@@ -33,9 +47,9 @@ export async function SendCode(phoneNumber, receivedCode) {
   }
 }
 
-export async function LoginAccount(phoneNumber) {
+export async function LoginAccount(username) {
   try {
-    let _result = await PostRestApi("login", { phoneNumber });
+    let _result = await PostRestApi("login", { username });
     return {
       auth: _result.data,
       alert: {
@@ -49,7 +63,7 @@ export async function LoginAccount(phoneNumber) {
 
 export async function LogoutAccount() {
   return {
-    auth: Default.auth,
+    auth: DefaultPublic.auth,
     alert: {
       open: true,
       message: "Logout Account Success.",

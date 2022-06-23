@@ -11,7 +11,23 @@ const handlers = [
       })
     );
   }),
-  rest.post(`${apiURL}sendCode`, (req, res, ctx) => {
+  rest.post(`${apiURL}sendMobileCode`, (req, res, ctx) => {
+    const params = req.body;
+
+    return res(
+      ctx.json({
+        status: params.receivedCode === "1-2-3-4" ? "success" : "error",
+      })
+    );
+  }),
+  rest.post(`${apiURL}sendMail`, (req, res, ctx) => {
+    return res(
+      ctx.json({
+        status: "success",
+      })
+    );
+  }),
+  rest.post(`${apiURL}sendMailCode`, (req, res, ctx) => {
     const params = req.body;
 
     return res(
@@ -26,7 +42,7 @@ const handlers = [
     return res(
       ctx.json({
         connected: true,
-        user: params.phoneNumber,
+        user: params.username,
         token: v4(),
         refreshToken: v4(),
       })

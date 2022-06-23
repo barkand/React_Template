@@ -9,36 +9,42 @@ import {
   Input,
   InputLabel,
 } from "@mui/material";
-import { Phone as PhoneIcon, VpnKey as VpnKeyIcon } from "@mui/icons-material";
+import {
+  Phone as PhoneIcon,
+  VpnKey as VpnKeyIcon,
+  Mail as MailIcon,
+} from "@mui/icons-material";
 
 import { PublicContext } from "../../../Context/Public";
-import { SendPhone, SendCode, LoginAccount } from "./api/Auth";
+import { SendUserName, SendCode, LoginAccount } from "./api/Auth";
 import { PhoneMaskCustom, CodeMaskCustom } from "../../Mask/Mask";
 
 const AuthState = {
-  PhoneNumber: 1,
+  UserName: 1,
   ReceivedCode: 2,
 };
 
 export default function LoginModal({ openModal, setOpenModal }) {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
 
-  const [phoneNumber, setPhoneNumber] = React.useState(
-    `(+${process.env.REACT_APP_COUNTRY_CODE}) 900-000-0000`
+  const [userName, setUserName] = React.useState(
+    process.env.REACT_APP_WEB1_AUTH_TYPE === "PHONE"
+      ? `(+${process.env.REACT_APP_COUNTRY_CODE}) 900-000-0000`
+      : ""
   );
   const [receivedCode, setReceivedCode] = React.useState("0-0-0-0");
-  const [authState, setAuthState] = React.useState(AuthState.PhoneNumber);
+  const [authState, setAuthState] = React.useState(AuthState.UserName);
 
   const handleCloseModal = () => {
     setOpenModal(false);
-    setAuthState(AuthState.PhoneNumber);
+    setAuthState(AuthState.UserName);
     setReceivedCode("0-0-0-0");
   };
 
   const handleLogin = () => {
-    if (authState === AuthState.PhoneNumber) {
-      async function _sendPhone() {
-        let _result = await SendPhone(phoneNumber);
+    if (authState === AuthState.UserName) {
+      async function _sendUserName() {
+        let _result = await SendUserName(userName);
         if (_result.status === "success") {
           setAuthState(AuthState.ReceivedCode);
         } else {
@@ -48,13 +54,13 @@ export default function LoginModal({ openModal, setOpenModal }) {
           });
         }
       }
-      _sendPhone();
+      _sendUserName();
     } else {
       async function _sendCode() {
-        let _result = await SendCode(phoneNumber, receivedCode);
+        let _result = await SendCode(userName, receivedCode);
         if (_result.status === "success") {
           async function signing() {
-            let _login = await LoginAccount(phoneNumber);
+            let _login = await LoginAccount(userName);
             setPublicCtx({
               ...publicCtx,
               auth: _login.auth,
@@ -95,18 +101,31 @@ export default function LoginModal({ openModal, setOpenModal }) {
 
           <Grid item>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-              <PhoneIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+              {process.env.REACT_APP_WEB1_AUTH_TYPE === "PHONE" ? (
+                <PhoneIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+              ) : (
+                <MailIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+              )}
+
               <FormControl variant="standard">
-                <InputLabel htmlFor="phone-input">Phone</InputLabel>
+                <InputLabel htmlFor="input">
+                  {process.env.REACT_APP_WEB1_AUTH_TYPE === "PHONE"
+                    ? "Phone"
+                    : "Email"}
+                </InputLabel>
                 <Input
-                  id="phone"
+                  id={process.env.REACT_APP_WEB1_AUTH_TYPE}
                   variant="standard"
-                  value={phoneNumber}
+                  value={userName}
                   onChange={(event) => {
-                    setPhoneNumber(event.target.value);
+                    setUserName(event.target.value);
                   }}
-                  disabled={authState !== AuthState.PhoneNumber}
-                  inputComponent={PhoneMaskCustom}
+                  disabled={authState !== AuthState.UserName}
+                  inputComponent={
+                    process.env.REACT_APP_WEB1_AUTH_TYPE === "PHONE"
+                      ? PhoneMaskCustom
+                      : null
+                  }
                 />
               </FormControl>
             </Box>
@@ -140,7 +159,7 @@ export default function LoginModal({ openModal, setOpenModal }) {
               sx={{ minWidth: "120px" }}
               onMouseDown={handleLogin}
             >
-              {authState === AuthState.PhoneNumber ? "Send Code" : "Login"}
+              {authState === AuthState.UserName ? "Send Code" : "Login"}
             </Button>
           </Grid>
         </Grid>
