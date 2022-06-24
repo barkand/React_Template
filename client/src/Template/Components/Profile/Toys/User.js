@@ -9,10 +9,10 @@ export default function User() {
   const [account, setAccount] = React.useState("");
 
   React.useEffect(() => {
-    if (process.env.REACT_APP_WALLET_TYPE === "WEB1") {
+    if (process.env.REACT_APP_AUTH_TYPE !== "WEB3") {
       setConnected(publicCtx.auth.connected);
       setAccount(publicCtx.auth.user);
-    } else if (process.env.REACT_APP_WALLET_TYPE === "WEB3") {
+    } else if (process.env.REACT_APP_AUTH_TYPE === "WEB3") {
       setConnected(publicCtx.wallet.connected);
       if (publicCtx.wallet.connected) {
         var acc = publicCtx.wallet.account;

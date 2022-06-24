@@ -28,7 +28,7 @@ export default function LoginModal({ openModal, setOpenModal }) {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
 
   const [userName, setUserName] = React.useState(
-    process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+    process.env.REACT_APP_AUTH_TYPE === "MOBILE"
       ? `(+${process.env.REACT_APP_COUNTRY_CODE}) 900-000-0000`
       : ""
   );
@@ -101,7 +101,7 @@ export default function LoginModal({ openModal, setOpenModal }) {
 
           <Grid item>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-              {process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE" ? (
+              {process.env.REACT_APP_AUTH_TYPE === "MOBILE" ? (
                 <PhoneIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
               ) : (
                 <MailIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
@@ -109,12 +109,12 @@ export default function LoginModal({ openModal, setOpenModal }) {
 
               <FormControl variant="standard">
                 <InputLabel htmlFor="input">
-                  {process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+                  {process.env.REACT_APP_AUTH_TYPE === "MOBILE"
                     ? "Mobile"
                     : "Email"}
                 </InputLabel>
                 <Input
-                  id={process.env.REACT_APP_WEB1_AUTH_TYPE}
+                  id={process.env.REACT_APP_AUTH_TYPE}
                   variant="standard"
                   value={userName}
                   onChange={(event) => {
@@ -122,7 +122,7 @@ export default function LoginModal({ openModal, setOpenModal }) {
                   }}
                   disabled={authState !== AuthState.UserName}
                   inputComponent={
-                    process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+                    process.env.REACT_APP_AUTH_TYPE === "MOBILE"
                       ? PhoneMaskCustom
                       : null
                   }

@@ -4,7 +4,7 @@ import { PostRestApi } from "./Rest";
 export async function SendUserName(username) {
   try {
     let _result = await PostRestApi(
-      process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+      process.env.REACT_APP_AUTH_TYPE === "MOBILE"
         ? "sendMobile"
         : "sendMail",
       { username }
@@ -18,7 +18,7 @@ export async function SendUserName(username) {
         alert: {
           open: true,
           message: `${
-            process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+            process.env.REACT_APP_AUTH_TYPE === "MOBILE"
               ? "Mobile number"
               : "Email"
           } is not valid`,
@@ -32,7 +32,7 @@ export async function SendUserName(username) {
       alert: {
         open: true,
         message: `${
-          process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+          process.env.REACT_APP_AUTH_TYPE === "MOBILE"
             ? "Mobile number"
             : "Email"
         } is not valid`,
@@ -45,7 +45,7 @@ export async function SendUserName(username) {
 export async function SendCode(username, receivedCode) {
   try {
     let _result = await PostRestApi(
-      process.env.REACT_APP_WEB1_AUTH_TYPE === "MOBILE"
+      process.env.REACT_APP_AUTH_TYPE === "MOBILE"
         ? "sendMobileCode"
         : "sendMailCode",
       { username, receivedCode }

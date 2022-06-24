@@ -25,9 +25,9 @@ export default function AppBarComponent(props) {
         <Logo />
         <Title />
         <Gap />
-        {process.env.REACT_APP_WALLET_TYPE === "WEB1" ? (
+        {process.env.REACT_APP_AUTH_TYPE !== "WEB3" ? (
           <LoginBtn />
-        ) : process.env.REACT_APP_WALLET_TYPE === "WEB3" ? (
+        ) : process.env.REACT_APP_AUTH_TYPE === "WEB3" ? (
           <WalletBtn />
         ) : (
           <></>
