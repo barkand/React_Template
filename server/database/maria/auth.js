@@ -1,45 +1,36 @@
-const mariadb = require("mariadb");
+const { GetConnection } = require(`./conn`);
 const { GetActiveCode } = require("../../auth/AuthCode");
 
-let GetConnection = () => {
-  return {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-  };
-};
-
 let SeveAuthCode = async (username) => {
-  let conn = await mariadb.createConnection(GetConnection());
+  let conn = GetConnection();
   let { active_code, expire_code } = GetActiveCode();
 
-  const rows = await conn.query("SELECT 1 FROM `user` WHERE username = ?", [
+  const rows = await conn.query("SELECT 1 FROM users WHERE username = ?", [
     username,
   ]);
 
   if (rows && rows.length == 0) {
     await conn.query(
-      "INSERT INTO `user`(username, code, code_expire) value (?, ?, ?)",
+      "INSERT INTO users (username, code, code_expire) value (?, ?, ?)",
       [username, active_code, expire_code]
     );
   } else {
     await conn.query(
-      `UPDATE user SET code = ?, code_expire = ? WHERE username = ?`,
+      `UPDATE users SET code = ?, code_expire = ? WHERE username = ?`,
       [active_code, expire_code, username]
     );
   }
+  console.log("1");
   conn.end();
 
   return active_code;
 };
 
 let GetAuthCode = async (username) => {
-  let conn = await mariadb.createConnection(GetConnection());
+  let conn = GetConnection();
 
   const rows = await conn.query(
-    "SELECT code FROM `user` WHERE username = ? and code_expire > now()",
+    "SELECT code FROM users WHERE username = ? and code_expire > now()",
     [username]
   );
   conn.end();
@@ -52,14 +43,14 @@ let GetAuthCode = async (username) => {
 };
 
 let SaveUser = async (username, token, refresh_token) => {
-  const conn = await mariadb.createConnection(GetConnection());
+  let conn = GetConnection();
 
-  const rows = await conn.query("SELECT 1 FROM `user` WHERE username = ?", [
+  const rows = await conn.query("SELECT 1 FROM users WHERE username = ?", [
     username,
   ]);
   if (rows && rows.length > 0) {
     await conn.query(
-      `UPDATE user SET token = ?, refresh_token = ? WHERE username = ?`,
+      `UPDATE users SET token = ?, refresh_token = ? WHERE username = ?`,
       [token, refresh_token, username]
     );
   }
