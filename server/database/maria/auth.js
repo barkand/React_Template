@@ -20,7 +20,6 @@ let SeveAuthCode = async (username) => {
       [active_code, expire_code, username]
     );
   }
-  console.log("1");
   conn.end();
 
   return active_code;
