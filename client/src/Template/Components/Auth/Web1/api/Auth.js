@@ -4,9 +4,7 @@ import { PostRestApi } from "./Rest";
 export async function SendUserName(username) {
   try {
     let _result = await PostRestApi(
-      process.env.REACT_APP_AUTH_TYPE === "MOBILE"
-        ? "sendMobile"
-        : "sendMail",
+      process.env.REACT_APP_AUTH_TYPE === "MOBILE" ? "sendMobile" : "sendMail",
       { username }
     );
 
@@ -50,7 +48,7 @@ export async function SendCode(username, receivedCode) {
         : "sendMailCode",
       { username, receivedCode }
     );
-    console.log(_result.status);
+
     if (_result.status === 200) {
       return { status: "success" };
     } else {

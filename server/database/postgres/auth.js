@@ -25,7 +25,6 @@ let SeveAuthCode = async (username) => {
 
 let GetAuthCode = async (username) => {
   db.connect();
-  console.log("2");
   const rows = await db.query(
     "SELECT code FROM users WHERE username = $1 and code_expire > now()",
     [username]
