@@ -16,7 +16,7 @@ module.exports = new (class MobileController {
         res.status(500).send({ message: "SendAuthMobile: error" });
       }
     } catch (err) {
-      res.status(err.status).send({ message: err.message });
+      res.status(500).send({ message: err });
     }
   };
 
@@ -32,7 +32,7 @@ module.exports = new (class MobileController {
         res.status(400).send({ message: "code is wrong" });
       }
     } catch (err) {
-      res.status(err.status).send({ message: err.message });
+      res.status(500).send({ message: err });
     }
   };
 })();
