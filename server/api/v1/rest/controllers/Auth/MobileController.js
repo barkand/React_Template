@@ -16,6 +16,7 @@ module.exports = new (class MobileController {
         res.status(500).send({ message: "SendAuthMobile: error" });
       }
     } catch (err) {
+      console.log(err);
       res.status(500).send({ message: err });
     }
   };
