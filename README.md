@@ -12,7 +12,7 @@ A ready template for a quick start with react. 🚀
 - 📍 Scroll to Top
 - 📱 PWA
 - 🔒️ Authentication Types (WEB3, EMAIL, MOBILE)
-- 💾 Database Types (MONGO, MARIA)
+- 💾 Database Types (MONGO, MARIA, POSTGRES)
 
 ---
 
@@ -77,7 +77,7 @@ Open [http://localhost:4000](http://localhost:4000) to view it in your browser.
 
 ---
 
-![docker](https://img.shields.io/badge/docker-%230073CF.svg?style=for-the-badge&logo=docker&logoColor=%2361DAFB) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-%230081CB.svg?style=for-the-badge&logo=mariadb&logoColor=white)
+![docker](https://img.shields.io/badge/docker-%230073CF.svg?style=for-the-badge&logo=docker&logoColor=%2361DAFB) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-%230081CB.svg?style=for-the-badge&logo=mariadb&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-%230081CB.svg?style=for-the-badge&logo=postgres&logoColor=white)
 
 #### Database:
 
@@ -85,6 +85,7 @@ You can use Docker to run the database.
 
 [MongoDB](https://github.com/barkand/Docker_DE/blob/main/databases/mongodb-docker-compose.yml)
 [MariaDB](https://github.com/barkand/Docker_DE/blob/main/databases/mariadb-docker-compose.yml)
+[Postgrsql](https://github.com/barkand/Docker_DE/blob/main/databases/postgres-docker-compose.yml)
 
 ---
 
