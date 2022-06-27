@@ -1,8 +1,8 @@
-const { GetConnection } = require(`./conn`);
+const GetConnection = require(`./conn`);
 const { GetActiveCode } = require("../../auth/AuthCode");
 
 let SeveAuthCode = async (username) => {
-  let conn = GetConnection();
+  let conn = await GetConnection();
   let { active_code, expire_code } = GetActiveCode();
 
   const rows = await conn.query("SELECT 1 FROM users WHERE username = ?", [
@@ -26,7 +26,7 @@ let SeveAuthCode = async (username) => {
 };
 
 let GetAuthCode = async (username) => {
-  let conn = GetConnection();
+  let conn = await GetConnection();
 
   const rows = await conn.query(
     "SELECT code FROM users WHERE username = ? and code_expire > now()",
@@ -42,7 +42,7 @@ let GetAuthCode = async (username) => {
 };
 
 let SaveUser = async (username, token, refresh_token) => {
-  let conn = GetConnection();
+  let conn = await GetConnection();
 
   const rows = await conn.query("SELECT 1 FROM users WHERE username = ?", [
     username,
