@@ -6,6 +6,8 @@ import * as serviceWorker from "./serviceWorker";
 import ErrorBoundary from "./ErrorBoundary";
 import "./Template/assets/styles/index.css";
 
+import Provider from "./Api/Graphql/Provider";
+
 if (process.env.NODE_ENV === "development") {
   const { worker } = require("./mocks/Rest/browser");
   worker.start();
@@ -14,9 +16,11 @@ if (process.env.NODE_ENV === "development") {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ErrorBoundary>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <Provider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Provider>
   </ErrorBoundary>
 );
 
