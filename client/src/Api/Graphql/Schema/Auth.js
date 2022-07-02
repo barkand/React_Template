@@ -40,7 +40,6 @@ const AuthSchema = (params) => {
       query: `
             query GetLogin {
                 login ( username:"${params.username}" ) {
-                    status
                     connected
                     user
                     token
