@@ -3,7 +3,7 @@ import { v4 } from "uuid";
 
 let apiURL = `/api/${process.env.REACT_APP_API_VERSION.toLowerCase()}/`;
 
-const handlers = [
+const RestHandler = [
   rest.post(`${apiURL}sendMobile`, (req, res, ctx) => {
     return res(
       ctx.status(200),
@@ -45,4 +45,4 @@ const handlers = [
   }),
 ];
 
-export default handlers;
+export default RestHandler;

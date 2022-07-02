@@ -9,7 +9,7 @@ import "./Template/assets/styles/index.css";
 import Provider from "./Api/Graphql/Provider";
 
 if (process.env.NODE_ENV === "development") {
-  const { worker } = require("./mocks/Rest/browser");
+  const { worker } = require("./Mocks/browser");
   worker.start();
 }
 
