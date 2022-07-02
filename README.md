@@ -13,8 +13,7 @@ A ready template for a quick start with react. 🚀
 - 📱 PWA
 - 🔒️ Authentication Types (WEB3, EMAIL, MOBILE)
 - 💾 Database Types (MONGO, MARIA, POSTGRES)
-- 📝 API Types (REST, GRAPHQL)  
-
+- 👽️ API Types (REST, GRAPHQL)
 
 ---
 
