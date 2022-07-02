@@ -12,7 +12,7 @@ export default function Provider({ children }) {
       {process.env.REACT_APP_API_TYPE === "GRAPHQL" ? (
         <ApolloProvider client={client}>{children}</ApolloProvider>
       ) : (
-        <></>
+        <>{children}</>
       )}
     </>
   );
