@@ -1,9 +1,9 @@
 import { DefaultPublic } from "../../../../Context/Default";
-import { PostRestApi } from "./Rest";
+import { PostApi } from "../../../../../Api/Api";
 
 export async function SendUserName(username) {
   try {
-    let _result = await PostRestApi(
+    let _result = await PostApi(
       process.env.REACT_APP_AUTH_TYPE === "MOBILE" ? "sendMobile" : "sendMail",
       { username }
     );
@@ -42,7 +42,7 @@ export async function SendUserName(username) {
 
 export async function SendCode(username, receivedCode) {
   try {
-    let _result = await PostRestApi(
+    let _result = await PostApi(
       process.env.REACT_APP_AUTH_TYPE === "MOBILE"
         ? "sendMobileCode"
         : "sendMailCode",
@@ -75,7 +75,7 @@ export async function SendCode(username, receivedCode) {
 
 export async function LoginAccount(username) {
   try {
-    let _result = await PostRestApi("login", { username });
+    let _result = await PostApi("login", { username });
     return {
       auth: _result.data,
       alert: {
