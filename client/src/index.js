@@ -8,7 +8,10 @@ import "./Template/assets/styles/index.css";
 
 import Provider from "./Api/Graphql/Provider";
 
-if (process.env.NODE_ENV === "development") {
+if (
+  process.env.NODE_ENV === "development" &&
+  process.env.REACT_APP_SERVER_URL === ""
+) {
   const { worker } = require("./Mocks/browser");
   worker.start();
 }
