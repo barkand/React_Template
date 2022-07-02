@@ -23,6 +23,7 @@ export const PostApi = (api_name, params) => {
   } else {
     return PostAxiosApi(process.env.REACT_APP_SERVER_URL, {
       query: AuthSchema(params)[api_name].query,
+      variables: params,
     })
       .then((response) => {
         return { data: response.data.data[api_name], status: response.status };
