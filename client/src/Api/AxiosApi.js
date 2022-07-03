@@ -1,9 +1,8 @@
 import axios from "axios";
 
-let apiURL = process.env.REACT_APP_SERVER_URL;
-if (process.env.REACT_APP_API_TYPE === "REST") {
-  apiURL = `${apiURL}/api/${process.env.REACT_APP_API_VERSION.toLowerCase()}/`;
-}
+let apiURL = `${
+  process.env.REACT_APP_SERVER_URL
+}/api/${process.env.REACT_APP_API_TYPE.toLowerCase()}/${process.env.REACT_APP_API_VERSION.toLowerCase()}/`;
 
 let axiosInstance;
 

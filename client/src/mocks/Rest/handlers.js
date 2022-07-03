@@ -1,7 +1,7 @@
 import { rest } from "msw";
 import { v4 } from "uuid";
 
-let apiURL = `/api/${process.env.REACT_APP_API_VERSION.toLowerCase()}/`;
+let apiURL = `/api/rest/${process.env.REACT_APP_API_VERSION.toLowerCase()}/`;
 
 const RestHandler = [
   rest.post(`${apiURL}sendMobile`, (req, res, ctx) => {

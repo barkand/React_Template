@@ -9,7 +9,7 @@ export const GetApi = (api_name, params) => {
       paramsSerializer: (params) => QueryString(params),
     });
   } else {
-    return GetAxiosApi(process.env.REACT_APP_SERVER_URL, {
+    return GetAxiosApi(api_name, {
       query: AuthSchema(params)[api_name].query,
     }).then((response) => {
       return response.data.data[api_name];
@@ -21,7 +21,7 @@ export const PostApi = (api_name, params) => {
   if (process.env.REACT_APP_API_TYPE === "REST") {
     return PostAxiosApi(api_name, params);
   } else {
-    return PostAxiosApi(process.env.REACT_APP_SERVER_URL, {
+    return PostAxiosApi(api_name, {
       query: AuthSchema(params)[api_name].query,
       variables: params,
     })
