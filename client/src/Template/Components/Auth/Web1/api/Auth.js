@@ -8,7 +8,7 @@ export async function SendUserName(username) {
       { username }
     );
 
-    if (_result.status === 200) {
+    if (_result.status === 200 && _result.data.status === 200) {
       return { status: "success" };
     } else {
       return {
@@ -49,7 +49,7 @@ export async function SendCode(username, receivedCode) {
       { username, receivedCode }
     );
 
-    if (_result.status === 200) {
+    if (_result.status === 200 && _result.data.status === 200) {
       return { status: "success" };
     } else {
       return {
