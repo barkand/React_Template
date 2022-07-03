@@ -20,6 +20,7 @@ const ResultMsgType = new GraphQLObjectType({
   name: "ResultMsg",
   fields: () => ({
     status: { type: graphql.GraphQLInt },
+    message: { type: graphql.GraphQLString },
   }),
 });
 

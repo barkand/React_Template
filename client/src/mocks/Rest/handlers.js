@@ -8,27 +8,43 @@ const RestHandler = [
     return res(
       ctx.status(200),
       ctx.json({
-        status: "success",
+        status: 200,
+        message: "mobile success sended",
       })
     );
   }),
   rest.post(`${apiURL}sendMobileCode`, (req, res, ctx) => {
     const params = req.body;
 
-    return res(ctx.status(params.receivedCode === "1-2-3-4" ? 200 : 400));
+    return res(
+      ctx.status(params.receivedCode === "1-2-3-4" ? 200 : 400),
+      ctx.json({
+        status: params.receivedCode === "1-2-3-4" ? 200 : 400,
+        message:
+          params.receivedCode === "1-2-3-4" ? "code is true" : "code is wrong",
+      })
+    );
   }),
   rest.post(`${apiURL}sendMail`, (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
-        status: "success",
+        status: 200,
+        message: "email success sended",
       })
     );
   }),
   rest.post(`${apiURL}sendMailCode`, (req, res, ctx) => {
     const params = req.body;
 
-    return res(ctx.status(params.receivedCode === "1-2-3-4" ? 200 : 400));
+    return res(
+      ctx.status(params.receivedCode === "1-2-3-4" ? 200 : 400),
+      ctx.json({
+        status: params.receivedCode === "1-2-3-4" ? 200 : 400,
+        message:
+          params.receivedCode === "1-2-3-4" ? "code is true" : "code is wrong",
+      })
+    );
   }),
   rest.post(`${apiURL}login`, (req, res, ctx) => {
     const params = req.body;

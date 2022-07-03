@@ -6,8 +6,9 @@ const GraphqlHandler = [
     return res(
       ctx.status(200),
       ctx.data({
-        data: {
-          status: "success",
+        sendMobile: {
+          status: 200,
+          message: "mobile success sended",
         },
       })
     );
@@ -17,8 +18,10 @@ const GraphqlHandler = [
     return res(
       ctx.status(receivedCode === "1-2-3-4" ? 200 : 400),
       ctx.data({
-        data: {
-          status: "success",
+        sendMobileCode: {
+          status: receivedCode === "1-2-3-4" ? 200 : 400,
+          message:
+            receivedCode === "1-2-3-4" ? "code is true" : "code is wrong",
         },
       })
     );
@@ -27,8 +30,9 @@ const GraphqlHandler = [
     return res(
       ctx.status(200),
       ctx.data({
-        data: {
-          status: "success",
+        sendMail: {
+          status: 200,
+          message: "email success sended",
         },
       })
     );
@@ -38,8 +42,10 @@ const GraphqlHandler = [
     return res(
       ctx.status(receivedCode === "1-2-3-4" ? 200 : 400),
       ctx.data({
-        data: {
-          status: "success",
+        sendMail: {
+          status: receivedCode === "1-2-3-4" ? 200 : 400,
+          message:
+            receivedCode === "1-2-3-4" ? "code is true" : "code is wrong",
         },
       })
     );

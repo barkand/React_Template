@@ -5,6 +5,7 @@ const AuthSchema = (params) => {
             query GetSendMobile {
                 sendMobile ( username:"${params.username}" ) {
                     status
+                    message
                 }
             }
             `,
@@ -14,6 +15,7 @@ const AuthSchema = (params) => {
             query GetSendMail {
                 sendMail ( username:"${params.username}" ) {
                     status
+                    message
                 }
             }
             `,
@@ -23,6 +25,7 @@ const AuthSchema = (params) => {
             query GetSendMobileCode {
                 sendMobileCode ( username:"${params.username}", receivedCode:"${params.receivedCode}" ) {
                     status
+                    message
                 }
             }
             `,
@@ -32,6 +35,7 @@ const AuthSchema = (params) => {
             query GetSendMailCode {
                 sendMailCode ( username:"${params.username}", receivedCode:"${params.receivedCode}" ) {
                     status
+                    message
                 }
             }
             `,
