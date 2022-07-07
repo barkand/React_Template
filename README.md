@@ -11,7 +11,7 @@ A ready template for a quick start with react. 🚀
 - 📥 Header Types (STATIC, FIXED, HIDE, ELEVATE)
 - 📍 Scroll to Top
 - 📱 PWA
-- 🔒️ Authentication Types (WEB3, EMAIL, MOBILE)
+- 🔒️ Authentication Types (WEB3, OAUTH, EMAIL, MOBILE)
 - 💾 Database Types (MONGO, MARIA, POSTGRES)
 - 👽️ API Types (REST, GRAPHQL)
 
