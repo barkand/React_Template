@@ -1,4 +1,6 @@
-var typeDefs = `
+var { gql } = require("graphql-tag");
+
+var typeDefs = gql`
   type User {
     username: String
     token: String
@@ -24,7 +26,6 @@ var typeDefs = `
     sendMail(username: String!): ResultMsg
     sendMailCode(username: String!, receivedCode: String!): ResultMsg
     login(username: String!): ResultLogin
-
   }
 `;
 
