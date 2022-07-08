@@ -21,13 +21,13 @@ if (process.env.API_TYPE === "REST") {
   app.use(`/api/rest/${process.env.API_VERSION.toLowerCase()}`, apiRouter);
 } else {
   const { graphqlHTTP } = require("express-graphql");
-  const schema = require(`./api/graphql/${process.env.API_VERSION.toLowerCase()}/Schema`);
+  const schema = require(`./api/graphql/${process.env.API_VERSION.toLowerCase()}/schema`);
 
   app.use(
     `/api/graphql/${process.env.API_VERSION.toLowerCase()}`,
     graphqlHTTP({
       schema: schema,
-      graphiql: process.env.NODE_ENV === "development",
+      graphiql: true,
     })
   );
 }
