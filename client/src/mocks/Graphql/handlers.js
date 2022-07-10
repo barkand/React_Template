@@ -42,7 +42,7 @@ const GraphqlHandler = [
     return res(
       ctx.status(receivedCode === "1-2-3-4" ? 200 : 400),
       ctx.data({
-        sendMail: {
+        sendMailCode: {
           status: receivedCode === "1-2-3-4" ? 200 : 400,
           message:
             receivedCode === "1-2-3-4" ? "code is true" : "code is wrong",
