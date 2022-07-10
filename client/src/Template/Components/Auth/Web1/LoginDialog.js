@@ -17,7 +17,7 @@ import {
 
 import { PublicContext } from "../../../Context/Public";
 import { SendUserName, SendCode, LoginAccount } from "./api/Auth";
-import { PhoneMaskCustom, CodeMaskCustom } from "../../Mask/Mask";
+import { PhoneMaskCustom, CodeMaskCustom } from "./Lib/Mask";
 
 const AuthState = {
   UserName: 1,
