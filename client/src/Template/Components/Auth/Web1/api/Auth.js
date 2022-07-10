@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { DefaultPublic } from "../../../../Context/Default";
 import { PostApi } from "../../../../../Api/Api";
 
@@ -97,3 +99,16 @@ export async function LogoutAccount() {
     },
   };
 }
+
+SendUserName.propTypes = {
+  userName: PropTypes.string.isRequired,
+};
+
+SendCode.propTypes = {
+  userName: PropTypes.string.isRequired,
+  receivedCode: PropTypes.string.isRequired,
+};
+
+LoginAccount.propTypes = {
+  userName: PropTypes.string.isRequired,
+};
