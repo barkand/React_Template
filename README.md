@@ -1,6 +1,6 @@
 A ready template for a quick start with react. 🚀
 
-[Demo](https://start.aionchain.co/)
+[Demo](https://barkand.github.io/React_Template/)
 
 ---
 
@@ -87,17 +87,3 @@ You can use Docker to run the database.
 [MongoDB](https://github.com/barkand/Docker_DE/blob/main/databases/mongodb-docker-compose.yml)
 [MariaDB](https://github.com/barkand/Docker_DE/blob/main/databases/mariadb-docker-compose.yml)
 [Postgrsql](https://github.com/barkand/Docker_DE/blob/main/databases/postgres-docker-compose.yml)
-
----
-
-## 📌 Demo
-
-![demo](https://www.aionchain.co/github/main.jpg)
-
-> Light
-
-![light](https://www.aionchain.co/github/light.jpg)
-
-> Dark
-
-![dark](https://www.aionchain.co/github/dark.jpg)
