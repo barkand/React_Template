@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "homepage": "https://barkand.github.io/React_Template/",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.6.9",
