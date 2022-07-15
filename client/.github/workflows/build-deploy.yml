@@ -1,57 +1,40 @@
-name: Build & deploy
+name: GitHub Pages
 
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:
-      - main
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-
+  deploy:
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v1
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
 
-      - name: Install NPM packages
-        run: npm ci
-
-      - name: Build project
-        run: npm run build
-
-      - name: Run tests
-        run: npm run test
-
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          name: production-files
-          path: ./build
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+      - run: npm ci
+      - run: npm run build
 
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: production-files
-          path: ./build
-
-      - name: Deploy to gh-pages
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
