@@ -1,5 +1,7 @@
 A ready template for a quick start with react. 🚀
 
+[![GitHub Pages](https://github.com/barkand/React_Template/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/barkand/React_Template/actions/workflows/build-deploy.yml)
+
 [Demo](https://barkand.github.io/React_Template/)
 
 ---
