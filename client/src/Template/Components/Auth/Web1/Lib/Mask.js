@@ -1,5 +1,4 @@
 import React from "react";
-
 import { IMaskInput } from "react-imask";
 import PropTypes from "prop-types";
 

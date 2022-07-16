@@ -1,6 +1,5 @@
-import PropTypes from "prop-types";
 import { useScrollTrigger, Slide, Box } from "@mui/material";
-
+import PropTypes from "prop-types";
 import AppBarComponent from "./AppBar";
 
 function HideOnScroll({ children }) {
