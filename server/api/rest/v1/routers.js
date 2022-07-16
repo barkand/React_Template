@@ -7,7 +7,6 @@ const MobileController = require(`../../controllers/Auth/MobileController`);
 const LoginController = require(`../../controllers/Auth/LoginController`);
 
 router.get("/", (req, res) => {
-  console.log("222");
   res.send(
     `[
       /sendMobile, 
