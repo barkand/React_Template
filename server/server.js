@@ -1,11 +1,13 @@
 const app = require("express")();
-const cors = require("cors");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+const helmet = require("helmet");
 require("dotenv").config();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
+app.use(helmet()); // protect from vulnerabilities 
 
 app.get("/", (req, res) => {
   res.send("/api");
