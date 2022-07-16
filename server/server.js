@@ -7,7 +7,8 @@ require("dotenv").config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.use(helmet()); // protect from vulnerabilities 
+app.use(helmet()); // protect from vulnerabilities
+app.disable("x-powered-by"); // an extra layer of obscurity to reduce server fingerprinting
 
 app.get("/", (req, res) => {
   res.send("/api");
