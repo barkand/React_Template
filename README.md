@@ -9,7 +9,7 @@ A ready template for a quick start with react. 🚀
 ## ✨ Features
 
 - 🌙 Dark Mode (DARK, LIGHT)
-- 🎨 Template Color (YELLOW, BLUE, GREEN, RED, PURPLE)
+- 🎨 Template Color (YELLOW, BLUE, GREEN, RED, PURPLE, GREY)
 - 📥 Header Types (STATIC, FIXED, HIDE, ELEVATE)
 - 📍 Scroll to Top
 - 📱 PWA
@@ -55,7 +55,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 REACT_APP_SERVER_URL=""             >>  Empty String for Mock Web Server or
                                     >>  Input Your Server Address for Real Server
 REACT_APP_THEM_MODE="DARK"          >>  DARK or LIGHT
-REACT_APP_THEM_COLOR="PURPLE"       >>  YELLOW, BLUE, GREEN, RED or PURPLE
+REACT_APP_THEM_COLOR="PURPLE"       >>  YELLOW, BLUE, GREEN, RED, PURPLE or GREY
 REACT_APP_HEADER_TYPE="STATIC"      >>  STATIC, FIXED, HIDE or ELEVATE
 REACT_APP_AUTH_TYPE="WEB3"          >>  WEB3, OAUTH, EMAIL or MOBILE
 ```
