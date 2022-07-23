@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "../../../assets/media/Logo.png";
+import logo from "../../../../Content/Media/Logo.png";
 
 export default function Logo() {
   return (
