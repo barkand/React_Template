@@ -5,6 +5,7 @@ import {
   GitHub as GitHubIcon,
   Twitter as TwitterIcon,
   LinkedIn as LinkedInIcon,
+  Telegram as TelegramIcon,
 } from "@mui/icons-material";
 
 export default function Footer() {
@@ -52,11 +53,20 @@ export default function Footer() {
                 )
               }
             />
+            <TelegramIcon
+              sx={{ cursor: "pointer", mr: 2 }}
+              onClick={() =>
+                window.open(
+                  `https://t.me/${process.env.REACT_APP_TELEGRAM_ID}`,
+                  "_blank"
+                )
+              }
+            />
             <LinkedInIcon
               sx={{ cursor: "pointer" }}
               onClick={() =>
                 window.open(
-                  `https://www.linkedin.com/in/${process.env.REACT_APP_LINKEDIN_ID}`,
+                  `https://www.linkedin.com/${process.env.REACT_APP_LINKEDIN_ID}`,
                   "_blank"
                 )
               }
