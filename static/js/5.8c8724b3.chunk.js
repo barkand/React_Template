@@ -1,2 +1,0 @@
-(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[5],{1023:function(t,c,e){"use strict";e.r(c),e.d(c,"default",(function(){return o}));e(1);var n=e(163),i=e(0);function o(){return Object(i.jsxs)("center",{children:[Object(i.jsx)(n.b,{to:"/",children:"Go to Home "}),Object(i.jsx)("p",{style:{fontSize:"20vw",color:"#cacaca"},children:"404"})]})}}}]);
-//# sourceMappingURL=5.8c8724b3.chunk.js.map
