@@ -15,6 +15,9 @@ export default function Theme({ children }) {
       secondary: {
         main: publicCtx.theme.secondary.main,
       },
+      background: {
+        default: publicCtx.theme.background.default,
+      },
     },
   });
 

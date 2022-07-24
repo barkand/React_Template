@@ -1,7 +1,7 @@
 import React from "react";
 
 import { DefaultPublic } from "./Default";
-import SetColor from "../Layout/Theme/SetColor";
+import { SetColor, SetBackColor } from "../Layout/Theme/SetColor";
 
 export const PublicContext = React.createContext({
   publicCtx: "",
@@ -42,6 +42,9 @@ const FillDefaulePublic = () => {
         process.env.REACT_APP_THEM_COLOR,
         "Secondary"
       ),
+    },
+    background: {
+      default: SetBackColor(process.env.REACT_APP_THEM_MODE),
     },
   };
 

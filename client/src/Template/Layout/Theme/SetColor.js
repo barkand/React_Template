@@ -29,6 +29,10 @@ export const Colors = Object.freeze({
 
 export const Colors_Secondary = Object.freeze();
 
-export default function SetColor(mode, color, type) {
+export function SetColor(mode, color, type) {
   return Colors[type][color][mode];
+}
+
+export function SetBackColor(mode) {
+  return mode === "DARK" ? "#2f353f" : "#fafafa";
 }

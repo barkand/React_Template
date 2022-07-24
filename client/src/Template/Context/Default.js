@@ -5,6 +5,7 @@ export const DefaultPublic = {
     color: "blue",
     primary: { main: "#00bcd4" },
     secondary: { main: "#00bcd4" },
+    background: { default: "#fafafa" },
   },
   wallet: {
     connected: false,
