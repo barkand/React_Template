@@ -3,7 +3,7 @@ import { Select, MenuItem, InputLabel, FormControl } from "@mui/material";
 import { Circle as CircleIcon } from "@mui/icons-material";
 
 import { PublicContext } from "../../Context/Public";
-import SetColor, { Colors } from "../Theme/SetColor";
+import { Colors, SetColor } from "../Theme/SetColor";
 
 export default function Setting() {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
