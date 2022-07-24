@@ -1,6 +1,6 @@
 {
-  "short_name": "CName",
   "name": "Company Name",
+  "short_name": "CName",
   "description": "Company Name description",
   "icons": [
     {
