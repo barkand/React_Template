@@ -1,3 +1,4 @@
+import React from "react";
 import AppBarComponent from "./AppBar";
 
 export default function FixedHeader() {

@@ -1,3 +1,4 @@
+import React from "react";
 import { useScrollTrigger, Slide, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import AppBarComponent from "./AppBar";
