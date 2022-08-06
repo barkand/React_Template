@@ -1,9 +1,9 @@
 import React from "react";
 
-import StaticHeader from "./Type/StaticHeader";
-import ElevateHeader from "./Type/ElevateHeader";
-import FixedHeader from "./Type/FixedHeader";
-import HideHeader from "./Type/HideHeader";
+import StaticHeader from "../Type/StaticHeader";
+import ElevateHeader from "../Type/ElevateHeader";
+import FixedHeader from "../Type/FixedHeader";
+import HideHeader from "../Type/HideHeader";
 
 export default function Header() {
   return (

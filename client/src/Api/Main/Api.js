@@ -1,6 +1,6 @@
 import { GetAxiosApi, PostAxiosApi } from "./AxiosApi";
-import QueryString from "./Rest/QueryString";
-import AuthSchema from "./Graphql/Schema/Auth";
+import QueryString from "../Rest/QueryString";
+import AuthSchema from "../Graphql/Schema/Auth";
 
 export const GetApi = (api_name, params) => {
   if (process.env.REACT_APP_API_TYPE === "REST") {

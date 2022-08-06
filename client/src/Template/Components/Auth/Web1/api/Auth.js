@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { DefaultPublic } from "../../../../Context/Default";
-import { PostApi } from "../../../../../Api/Api";
+import { PostApi } from "../../../../../Api";
 
 export async function SendUserName(username) {
   try {

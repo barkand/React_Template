@@ -4,7 +4,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 
 import MuiDrawer from "../Toys/MuiDrawer";
 import User from "../../../../Components/Profile/Toys/User";
-import Setting from "../../../Setting/Setting";
+import Setting from "../../../Setting";
 
 export default function NestedDrawer() {
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);

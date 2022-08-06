@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar } from "@mui/material";
 
-import Drawer from "../Drawer/Drawer";
+import Drawer from "../Drawer";
 import Logo from "../Toys/Logo";
 import Title from "../Toys/Title";
 import Gap from "../Toys/Gap";
