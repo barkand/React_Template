@@ -2,10 +2,17 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 export default function Main() {
-  const Home = React.lazy(() => import("./Screens/Home"));
-  const Page1 = React.lazy(() => import("./Screens/Page1"));
+  const Home = React.lazy(() =>
+    import(/* webpackChunkName: "Home" */ "./Screens/Home")
+  );
+  const Page1 = React.lazy(() =>
+    import(/* webpackChunkName: "Page1" */ "./Screens/Page1")
+  );
   const NotFoundPage = React.lazy(() =>
-    import("../Template/Layout/Main/NotFoundPage")
+    import(
+      /* webpackChunkName: "NotFoundPage" */
+      "../Template/Layout/Main/NotFoundPage"
+    )
   );
 
   return (
