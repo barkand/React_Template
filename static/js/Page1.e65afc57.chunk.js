@@ -1,0 +1,2 @@
+(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[2],{1023:function(e,t,n){"use strict";n.r(t),n.d(t,"default",(function(){return i}));n(1);var c=n(0);function i(){return document.title="Company Name | Page1",Object(c.jsx)(c.Fragment,{children:Object(c.jsx)("div",{children:"Page 1"})})}}}]);
+//# sourceMappingURL=Page1.e65afc57.chunk.js.map
