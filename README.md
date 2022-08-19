@@ -8,14 +8,15 @@ A ready template for a quick start with react. 🚀
 
 ## ✨ Features
 
-- 🌙 Dark Mode (DARK, LIGHT)
-- 🎨 Template Color (YELLOW, BLUE, GREEN, RED, PURPLE, GREY)
-- 📥 Header Types (STATIC, FIXED, HIDE, ELEVATE)
+- 🌙 Dark Mode [DARK, LIGHT]
+- 🎨 Template Color [YELLOW, BLUE, GREEN, RED, PURPLE, GREY]
+- 📥 Header Types [STATIC, FIXED, HIDE, ELEVATE]
 - 📍 Scroll to Top
 - 📱 PWA
-- 🔒️ Authentication Types (WEB3, OAUTH, EMAIL, MOBILE)
-- 💾 Database Types (MONGO, MARIA, POSTGRES)
-- 👽️ API Types (REST, GRAPHQL)
+- 🔒️ Authentication Types [WEB3, OAUTH, EMAIL, MOBILE]
+- 💾 Database Types [MONGO, MARIA, POSTGRES]
+- 👽️ API Types [REST, GRAPHQL]
+- 🤡 Mock Server (Mock API)
 - 📊 Prometheus (Metrics)
 
 ---
