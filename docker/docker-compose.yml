@@ -1,0 +1,22 @@
+version: "3.9"
+
+volumes:
+  app_data: {}
+
+networks:
+  network:
+
+services:
+  app-server:
+    image: hamid/node:16
+    build: ../server
+    container_name: app-server
+    command: npm run dev
+    restart: always
+    ports:
+      - 4000:4000
+    volumes:
+      - ./server/log:/var/log
+
+    networks:
+      - network
