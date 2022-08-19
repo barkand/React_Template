@@ -13,7 +13,7 @@ app.use(helmet()); // protect from vulnerabilities
 app.disable("x-powered-by"); // an extra layer of obscurity to reduce server fingerprinting
 
 // Promatheus Metrics
-if (process.env.PROMATHEUS === "true") {
+if (process.env.PROMETHEUS === "true") {
   const pino = require("pino");
   const expressPino = require("express-pino-logger");
   const promClient = require("prom-client");
