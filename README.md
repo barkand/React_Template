@@ -8,14 +8,14 @@ A ready template for a quick start with react. 🚀
 
 ## ✨ Features
 
-- 🌙 Dark Mode [DARK, LIGHT]
-- 🎨 Template Color [YELLOW, BLUE, GREEN, RED, PURPLE, GREY]
-- 📥 Header Types [STATIC, FIXED, HIDE, ELEVATE]
+- 🌙 Dark Mode: [DARK, LIGHT]
+- 🎨 Template Color: [YELLOW, BLUE, GREEN, RED, PURPLE, GREY]
+- 📥 Header Types: [STATIC, FIXED, HIDE, ELEVATE]
 - 📍 Scroll to Top
 - 📱 PWA
-- 🔒️ Authentication Types [WEB3, OAUTH, EMAIL, MOBILE]
-- 💾 Database Types [MONGO, MARIA, POSTGRES]
-- 👽️ API Types [REST, GRAPHQL]
+- 🔒️ Authentication Types: [WEB3, OAUTH, EMAIL, MOBILE]
+- 💾 Database Types: [MONGO, MARIA, POSTGRES]
+- 👽️ API Types: [REST, GRAPHQL]
 - 🤡 Mock Server (Mock API)
 - 📊 Prometheus (Metrics)
 
@@ -77,20 +77,22 @@ REACT_APP_SERVER_URL="http://localhost:4000"
 
 <br/>
 
-- **`PROMATHEUS="false"`**
+- #### `PROMATHEUS="false"`
+
   In the `server` directory, you can run:
 
-### `npm start`
+  #### `npm start`
 
 <br/>
 
-- **`PROMATHEUS="true"`**
+- #### `PROMATHEUS="true"`
 
-For active Prometheus metrics on server, first run PLG docker compose:
+  For active Prometheus metrics on server, first run PLG docker compose:
 
-[PLG](https://github.com/barkand/Docker_DE/blob/main/plg-docker-compose.yaml)
+  [PLG](https://github.com/barkand/Docker_DE/blob/main/plg-docker-compose.yaml)
 
-Then run `docker-compose.yml` in `server\docker`
+  <br/>
+  Then run `docker-compose.yml` in `server\docker`
 
 <br/>
 
