@@ -16,6 +16,7 @@ A ready template for a quick start with react. 🚀
 - 🔒️ Authentication Types (WEB3, OAUTH, EMAIL, MOBILE)
 - 💾 Database Types (MONGO, MARIA, POSTGRES)
 - 👽️ API Types (REST, GRAPHQL)
+- 📊 Prometheus (Metrics)
 
 ---
 
@@ -36,7 +37,7 @@ A ready template for a quick start with react. 🚀
 
 ## ⚡️ How to Run
 
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+[![JavaScript Badge](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white&link=)]() [![React Badge](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=React&logoColor=white&link=)]() [![MUI Badge](https://img.shields.io/badge/-MUI-007FFF?style=flat-square&logo=MUI&logoColor=white&link=)]() [![web3dotjs Badge](https://img.shields.io/badge/-Web3.js-F16822?style=flat-square&logo=web3dotjs&logoColor=white&link=)]()
 
 #### Frontend:
 
@@ -62,7 +63,8 @@ REACT_APP_AUTH_TYPE="WEB3"          >>  WEB3, OAUTH, EMAIL or MOBILE
 
 ---
 
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+[![JavaScript Badge](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white&link=)]() [![Express Badge](https://img.shields.io/badge/-Express-000000?style=flat-square&logo=Express&logoColor=white&link=)]() [![GraphQL Badge](https://img.shields.io/badge/-GraphQL-E10098?style=flat-square&logo=GraphQL&logoColor=white&link=)]() [![ApolloGraphql Badge](https://img.shields.io/badge/-Apollo-311C87?style=flat-square&logo=ApolloGraphql&logoColor=white&link=)]()
+[![Docker Badge](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=Docker&logoColor=white&link=)]() [![Prometheus Badge](https://img.shields.io/badge/-Prometheus-E6522C?style=flat-square&logo=Prometheus&logoColor=white&link=)](https://github.com/barkand/Docker_DE/blob/main/plg-docker-compose.yaml) [![Grafana Badge](https://img.shields.io/badge/-Grafana-663399?style=flat-square&logo=Grafana&logoColor=white&link=)](https://github.com/barkand/Docker_DE/blob/main/plg-docker-compose.yaml)
 
 #### Backend:
 
@@ -72,20 +74,33 @@ If you want to run the Real Server, First edit the `.env` file (in client).
 REACT_APP_SERVER_URL="http://localhost:4000"
 ```
 
-Then in the `server` directory, you can run:
+<br/>
+
+- **`PROMATHEUS="false"`**
+  In the `server` directory, you can run:
 
 ### `npm start`
 
-Open [http://localhost:4000](http://localhost:4000) to view it in your browser.
+<br/>
+
+- **`PROMATHEUS="true"`**
+
+For active Prometheus metrics on server, first run PLG docker compose:
+
+[PLG](https://github.com/barkand/Docker_DE/blob/main/plg-docker-compose.yaml)
+
+Then run `docker-compose.yml` in `server\docker`
+
+<br/>
+
+Now open [http://localhost:4000](http://localhost:4000) to view it in your browser.
 
 ---
 
-![docker](https://img.shields.io/badge/docker-%230073CF.svg?style=for-the-badge&logo=docker&logoColor=%2361DAFB) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-%230081CB.svg?style=for-the-badge&logo=mariadb&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-%230081CB.svg?style=for-the-badge&logo=postgres&logoColor=white)
+[![Docker Badge](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=Docker&logoColor=white&link=)]() [![MariaDB Badge](https://img.shields.io/badge/-MariaDB-003545?style=flat-square&logo=MariaDB&logoColor=white&link=)](https://github.com/barkand/Docker_DE/blob/main/databases/mariadb-docker-compose.yml) [![MongoDB Badge](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white&link=)](https://github.com/barkand/Docker_DE/blob/main/databases/mongodb-docker-compose.yml) [![PostgreSQL Badge](https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat-square&logo=PostgreSQL&logoColor=white&link=)](https://github.com/barkand/Docker_DE/blob/main/databases/postgres-docker-compose.yml)
 
 #### Database:
 
 You can use Docker to run the database.
 
-[MongoDB](https://github.com/barkand/Docker_DE/blob/main/databases/mongodb-docker-compose.yml)
-[MariaDB](https://github.com/barkand/Docker_DE/blob/main/databases/mariadb-docker-compose.yml)
-[Postgrsql](https://github.com/barkand/Docker_DE/blob/main/databases/postgres-docker-compose.yml)
+[MongoDB](https://github.com/barkand/Docker_DE/blob/main/databases/mongodb-docker-compose.yml) | [MariaDB](https://github.com/barkand/Docker_DE/blob/main/databases/mariadb-docker-compose.yml) | [PostgrSQL](https://github.com/barkand/Docker_DE/blob/main/databases/postgres-docker-compose.yml)
