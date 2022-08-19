@@ -1,6 +1,6 @@
 var {
   SaveUser,
-} = require(`../../../database/${process.env.DATABASE.toLowerCase()}/auth`);
+} = require(`../../../database/${process.env.DATABASE_TYPE.toLowerCase()}/auth`);
 const { createToken } = require("../../../auth/jwt");
 
 module.exports = new (class LoginController {
