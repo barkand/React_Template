@@ -77,6 +77,12 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!"); // custom error handler
 });
 
+if (process.env.NODE_ENV === "test") {
+  process.env.SERVER_PORT = 40000;
+}
+
 app.listen(process.env.SERVER_PORT, () => {
   console.log(`🚀  Server is running on port ${process.env.SERVER_PORT}`);
 });
+
+module.exports = app;
