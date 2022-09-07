@@ -18,7 +18,7 @@ A ready template for a quick start with react. 🚀
 - 👽️ API Types: [REST, GRAPHQL]
 - 🤡 Mock Server (Mock API)
 - 📊 Prometheus (Metrics)
-- ✅ Backend Test (Mocha, Chai)
+- ✅ Test (Mocha, Chai, Jest)
 
 ---
 
