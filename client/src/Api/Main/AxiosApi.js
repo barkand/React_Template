@@ -1,5 +1,4 @@
 import axios from "axios";
-import PropTypes from "prop-types";
 
 let apiURL = `${
   process.env.REACT_APP_SERVER_URL
@@ -51,10 +50,6 @@ export const GetAxiosApi = (api_name, params) => {
   });
 };
 
-// GetAxiosApi.propTypes = {
-//   api_name: PropTypes.string.isRequired,
-// };
-
 export const PostAxiosApi = (api_name, params) => {
   return new Promise((resolve, reject) => {
     api()
@@ -67,7 +62,3 @@ export const PostAxiosApi = (api_name, params) => {
       });
   });
 };
-
-// PostAxiosApi.propTypes = {
-//   api_name: PropTypes.string.isRequired,
-// };
