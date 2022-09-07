@@ -13,7 +13,9 @@ describe("Auth", () => {
 
   it("SendCode", async () => {
     const result = await SendCode(_username, _receivedCode);
-    expect(result.status).toBe("success");
+    expect(result.status).toBe(
+      (process.env.REACT_APP_SERVER_URL = "" ? "success" : "error")
+    );
   });
 
   it("LoginAccount", async () => {
