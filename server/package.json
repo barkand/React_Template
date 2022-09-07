@@ -30,8 +30,10 @@
   },
   "devDependencies": {
     "chai": "^4.3.6",
+    "chai-graphql": "^4.0.0",
     "chai-http": "^4.3.0",
     "mocha": "^10.0.0",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "supertest": "^6.2.4"
   }
 }

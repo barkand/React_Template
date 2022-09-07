@@ -77,12 +77,13 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!"); // custom error handler
 });
 
-if (process.env.NODE_ENV === "test") {
-  process.env.SERVER_PORT = 40000;
+let _port = process.env.SERVER_PORT;
+if (process.env.NODE_ENV === "test" && process.env.API_TYPE === "REST") {
+  _port = process.env.SERVER_TEST_PORT;
 }
 
-app.listen(process.env.SERVER_PORT, () => {
-  console.log(`🚀  Server is running on port ${process.env.SERVER_PORT}`);
+app.listen(_port, () => {
+  console.log(`🚀  Server is running on port ${_port}`);
 });
 
 module.exports = app;
