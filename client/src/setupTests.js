@@ -7,6 +7,10 @@ import "@testing-library/jest-dom";
 import { server } from "../src/Mocks/node";
 
 beforeAll(() => {
+  process.env.NODE_ENV = "test";
+  // User Mock Server
+  process.env.REACT_APP_SERVER_URL = "";
+
   if (process.env.REACT_APP_SERVER_URL === "") {
     server.listen();
   }

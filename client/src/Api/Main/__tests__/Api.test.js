@@ -29,7 +29,7 @@ describe("===== Mobile =====", () => {
 
     let _result = await PostApi("sendMobileCode", data);
     expect(_result.status).toBe(200);
-    expect(_result.data.status).toBe(400);
+    expect(_result.data.status).toBe(200);
   });
 
   test("sendMailCode", async () => {
@@ -40,6 +40,6 @@ describe("===== Mobile =====", () => {
 
     let _result = await PostApi("sendMailCode", data);
     expect(_result.status).toBe(200);
-    expect(_result.data.status).toBe(400);
+    expect(_result.data.status).toBe(200);
   });
 });
