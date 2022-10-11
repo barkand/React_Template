@@ -14,7 +14,7 @@ const createToken = (username) => {
   return { token, refreshToken };
 };
 
-const getAuthencatedUser = (req) => {
+const getAuthenticatedUser = (req) => {
   const token = req.headers["x-access-token"];
   if (!token) {
     return null;
@@ -27,4 +27,4 @@ const getAuthencatedUser = (req) => {
   }
 };
 
-module.exports = { createToken, getAuthencatedUser };
+module.exports = { createToken, getAuthenticatedUser };
