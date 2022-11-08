@@ -9,7 +9,7 @@ export const PublicContext = React.createContext({
 });
 
 export const PublicProvider = ({ children }) => {
-  let Default = FillDefaulePublic();
+  let Default = FillDefaultPublic();
   const [publicCtx, setPublicCtx] = React.useState(Default);
   const value = React.useMemo(() => ({ publicCtx, setPublicCtx }), [publicCtx]);
 
@@ -18,7 +18,7 @@ export const PublicProvider = ({ children }) => {
   );
 };
 
-const FillDefaulePublic = () => {
+const FillDefaultPublic = () => {
   let Default = { ...DefaultPublic };
 
   Default.device =
