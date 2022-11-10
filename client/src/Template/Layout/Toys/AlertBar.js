@@ -21,7 +21,7 @@ export default function AlertBar() {
 
     setPublicCtx({
       ...publicCtx,
-      alertBar: { open: false, message: "", severity: "info" },
+      alertBar: { ...publicCtx.alertBar, open: false, message: "" },
     });
   };
 
