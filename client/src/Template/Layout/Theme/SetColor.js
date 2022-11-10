@@ -27,8 +27,6 @@ export const Colors = Object.freeze({
   },
 });
 
-export const Colors_Secondary = Object.freeze();
-
 export function SetColor(mode, color, type) {
   return Colors[type][color][mode];
 }

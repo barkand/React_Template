@@ -4,7 +4,7 @@ import { DefaultPublic } from "../../../Context/Default";
 
 let DefaultWallet = DefaultPublic.wallet;
 
-export async function FillWallet(deviceType) {
+async function FillWallet(deviceType) {
   // web3
   let web3Provider = null;
   if (deviceType === "mobile") {
